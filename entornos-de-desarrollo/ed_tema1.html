@@ -1,11 +1,641 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Tema 1. Entornos</h1>
-</body>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-width=1.0" />
+    <title>Apuntes de Entornos de Desarrollo</title>
+    <style>
+      :root {
+        --primary-color: #2b2a68;
+        --secondary-color: #4a34db;
+        --bg-color: #f9fbfd;
+        --text-color: #333;
+        --card-bg: #ffffff;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      section {
+        
+        background-color: var(--card-bg);
+        border-radius: 0px;
+        padding: 3rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--secondary-color);
+      }
+      h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--secondary-color);
+      }
+      p {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+      ul {
+        padding-left: 1.5rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      .highlight {
+        background-color: #e8f4f8;
+        padding: 1rem;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+      .titulo-figura {
+        text-align: center;
+        font-style: italic;
+        margin-top: 0.5rem;
+      } 
+      svg {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+        }
+    
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Entornos de Desarrollo</h1>
+      <p>ELEMENTOS DEL DESARROLLO DEL SOFTWARE</p>
+      <p><small>Autor: Carlos Lobato Gómez</small></p>
+    </header>
+
+    <main>
+      <!-- TEMA 1 -->
+      <section>
+        <h2>1. Software y Programa. Tipos de Software</h2>
+        <p>
+          El <strong>software</strong> es el conjunto de programas informáticos
+          que actúan sobre el hardware para ejecutar lo que el usuario
+          desee. Según su función, se distinguen tres tipos:
+        </p>
+        <ul>
+          <li>
+            <strong>Sistema Operativo:</strong> Es el software base que ha de
+            estar instalado y configurado para que las aplicaciones puedan
+            ejecutarse.
+          </li>
+          <li>
+            <strong>Software de Programación:</strong> Herramientas que permiten
+            desarrollar programas informáticos.
+          </li>
+          <li>
+            <strong>Aplicaciones:</strong> Conjunto de programas que tienen una
+            finalidad concreta.
+          </li>
+        </ul>
+
+        <p>
+          A través de un lenguaje de programación se realiza la escritura de un
+          programa, y está formado por conjunto de símbolos y palabras
+          reservadas que permitirán al programador aportar instrucciones a un
+          ordenador para que sean ejecutadas. ​ ​ El primer paso a realizar, por
+          tanto, es escribir el programa en un lenguaje de programación. Una vez
+          realizado, el programa escrito se va a traducir al lenguaje máquina.
+          Este proceso es al que se conoce como compilación. Cada lenguaje de
+          programación tiene su propio compilador (excepto los lenguajes
+          interpretados).​
+        </p>
+
+        <p>
+          En programación podemos trabajar con distintos tipos de traducción:
+          compilación y ejecución directa.
+        </p>
+
+        <h3>Lenguajes interpretados</h3>
+        <p>
+          Los lenguajes interpretados son aquellos que no necesitan un proceso
+          de compilación previo para su ejecución. En su lugar, el código fuente
+          se ejecuta directamente mediante un intérprete, que traduce y ejecuta
+          las instrucciones línea por línea en tiempo real. Esto permite una
+          mayor flexibilidad y facilidad de depuración, aunque puede resultar en
+          un rendimiento más lento en comparación con los lenguajes compilados.
+        </p>
+        <h3>Lenguajes compilados</h3>
+        <p>
+          Los lenguajes compilados requieren un proceso de compilación previo,
+          donde el código fuente se traduce a código máquina antes de su
+          ejecución. Este proceso genera un archivo ejecutable que puede ser
+          ejecutado directamente por el sistema operativo. Los lenguajes
+          compilados suelen ofrecer un mejor rendimiento y eficiencia, pero
+          requieren un paso adicional de compilación antes de poder ejecutar el
+          programa.
+        </p>
+
+
+        <div class="svg-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 400" width="100%" height="100%">
+            <!-- Definición para las puntas de flecha -->
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000" />
+                </marker>
+            </defs>
+
+            <!-- LÍNEAS DE FLUJO (FLECHAS) -->
+            <!-- De 'errores' a 'Programa fuente' -->
+            <polyline points="120,120 120,30 290,30 290,61" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- De 'Compilador' a 'errores' -->
+            <polyline points="250,260 120,260 120,229" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- De 'Programa fuente' a 'Compilador' -->
+            <polyline points="330,150 330,211" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- De 'Compilador' a 'Programa objeto' -->
+            <polyline points="410,260 451,260" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- De 'Programa objeto' a 'Enlazador' -->
+            <polyline points="620,260 661,260" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- De 'Librerías' a 'Enlazador' -->
+            <polyline points="750,150 750,211" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+            <!-- De 'Enlazador' a 'Programa ejecutable' -->
+            <polyline points="830,260 871,260" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+
+
+            <!-- FIGURAS Y TEXTOS -->
+            
+            <!-- Programa fuente (Rectángulo redondeado) -->
+            <rect x="250" y="70" width="160" height="80" rx="10" fill="#e6e6e6" stroke="#000000" stroke-width="1.5" />
+            <text x="330" y="115" text-anchor="middle" font-size="16" fill="#000000">Programa fuente</text>
+
+            <!-- Compilador (Rectángulo redondeado destacado) -->
+            <rect x="250" y="220" width="160" height="80" rx="10" fill="#ff4d9d" stroke="#000000" stroke-width="1.5" />
+            <text x="330" y="265" text-anchor="middle" font-size="16" font-weight="strong" fill="#000000">Compilador</text>
+
+            <!-- Programa objeto (Rectángulo redondeado) -->
+            <rect x="460" y="220" width="160" height="80" rx="10" fill="#e6e6e6" stroke="#000000" stroke-width="1.5" />
+            <text x="540" y="265" text-anchor="middle" font-size="16" fill="#000000">Programa objeto</text>
+
+            <!-- Enlazador (Rectángulo redondeado) -->
+            <rect x="670" y="220" width="160" height="80" rx="10" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+            <text x="750" y="265" text-anchor="middle" font-size="16" fill="#000000">Enlazador</text>
+
+            <!-- Librerías (Hexágono) -->
+            <polygon points="700,70 800,70 830,110 800,150 700,150 670,110" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+            <text x="750" y="115" text-anchor="middle" font-size="16" fill="#000000">Librerías</text>
+
+            <!-- Programa ejecutable (Triángulo apuntando a la derecha) -->
+            <polygon points="880,180 880,340 1020,260" fill="#98e08d" stroke="#000000" stroke-width="1.5" />
+            <text x="935" y="255" text-anchor="middle" font-size="15" fill="#000000">Programa</text>
+            <text x="935" y="275" text-anchor="middle" font-size="15" fill="#000000">ejecutable</text>
+
+            <!-- errores (Rombo) -->
+            <polygon points="120,120 170,170 120,220 70,170" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+            <text x="120" y="175" text-anchor="middle" font-size="15" fill="#000000">errores</text>
+
+        </svg>
+
+        <div class="titulo-figura">
+        <strong>Figura 1:</strong> Diagrama de flujo del proceso de compilación
+
+        </div>
+        
+        <br>
+        <strong>Programa fuente:</strong>
+        <p> Programa escrito en un lenguaje de alto nivel (texto ordinario que
+contiene las sentencias del programa en un lenguaje de programación). Necesita ser 
+traducido a código máquina para poder ser ejecutado.​</p>
+
+        <strong>Compilador:</strong>
+        <p> Programa que traduce el código fuente a código objeto. Puede generar
+errores de compilación si el código fuente contiene errores de sintaxis o semántica.​</p>
+
+        <strong>Programa objeto:</strong>
+        <p> Código binario intermedio que resulta de compilar el código fuente.
+    Puede contener referencias a librerías externas que deben ser resueltas por el enlazador.​</p>
+
+        <strong>Enlazador:</strong>
+        <p> Programa que combina el código objeto con las librerías necesarias
+para generar un programa ejecutable. Puede generar errores de enlace si faltan librerías o símbolos no resueltos.​</p>
+        
+        <strong>Librerías:  </strong>
+        <p> Conjunto de funciones y rutinas precompiladas que pueden ser utilizadas
+por el programa objeto. Facilitan la reutilización de código y la modularidad del software.​</p>
+
+        <strong>Programa ejecutable:</strong>
+        <p> Código binario final que puede ser ejecutado directamente por el 
+ordenador. Contiene todas las instrucciones necesarias para que el programa funcione correctamente.​</p>
+      
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section>
+        <h2>2. Tipos de lenguajes de programación</h2>
+        <svg viewBox="0 0 1000 550" width="1000" height="550" xmlns="http://www.w3.org/2000/svg">
+        <!-- Filtro para sombra suave -->
+        <defs>
+            <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                <feOffset dx="2" dy="2" result="offsetblur" />
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.3" />
+                </feComponentTransfer>
+                <feMerge>
+                    <feMergeNode />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            <style>
+                text { font-family: Arial, sans-serif; font-size: 14px; text-anchor: middle; fill: #333; }
+                rect { rx: 10px; ry: 10px; stroke-width: 1.5; filter: url(#boxShadow); }
+                rect.box-shadow { fill-opacity: 1; filter: none; stroke: none; }
+                rect.box-white { fill: #ffffff; stroke-width: 1.5; filter: url(#boxShadow); }
+            </style>
+        </defs>
+
+        <!-- LÍNEAS DE CONEXIÓN -->
+        <!-- Nivel 1 a Nivel 2 (Naranja) -->
+        <path d="M500,130 L500,155 L300,155 L300,180 M500,155 L700,155 L700,180" stroke="#FF8C00" stroke-width="1.5" fill="none"/>
+
+        <!-- Nivel 2 Izq a L3 (Azul) -->
+        <path d="M300,260 L300,285 L150,285 L150,310 M300,285 L350,285 L350,310 M300,285 L550,285 L550,310" stroke="#4169E1" stroke-width="1.5" fill="none"/>
+
+        <!-- Nivel 2 Der a L3 (Azul) -->
+        <path d="M700,260 L700,285 L700,310 M700,285 L900,285 L900,310" stroke="#4169E1" stroke-width="1.5" fill="none"/>
+
+        <!-- L3 Impe a L4 (Verde) -->
+        <path d="M700,390 L700,415 L650,415 L650,440 M700,415 L850,415 L850,440" stroke="#4CAF50" stroke-width="1.5" fill="none"/>
+
+        <!-- NODOS -->
+        <!-- Nivel 1: Lenguajes de programación -->
+        <rect x="410" y="55" width="180" height="80" fill="#FFDAB9" class="box-shadow"/> <!-- Sombra naranja suave -->
+        <rect x="410" y="50" width="180" height="80" fill="#ffffff" stroke="#FF8C00" />
+        <text x="500" y="85">
+            <tspan x="500" dy="0">Lenguajes de</tspan>
+            <tspan x="500" dy="1.2em">programación</tspan>
+        </text>
+
+        <!-- Nivel 2: Por niveles -->
+        <rect x="225" y="185" width="150" height="80" fill="#FFF8DC" class="box-shadow"/> <!-- Sombra amarillo dorado suave -->
+        <rect x="225" y="180" width="150" height="80" fill="#ffffff" stroke="#FFD700" />
+        <text x="300" y="220">Por niveles</text>
+
+        <!-- Nivel 2: Por paradigma de programación -->
+        <rect x="610" y="185" width="180" height="80" fill="#FFF8DC" class="box-shadow"/> <!-- Sombra amarillo dorado suave -->
+        <rect x="610" y="180" width="180" height="80" fill="#ffffff" stroke="#FFD700" />
+        <text x="700" y="215">
+            <tspan x="700" dy="0">Por paradigma de</tspan>
+            <tspan x="700" dy="1.2em">programación</tspan>
+        </text>
+
+        <!-- Nivel 3: Lenguaje máquina -->
+        <rect x="85" y="315" width="130" height="80" fill="#E6F0FF" class="box-shadow"/> <!-- Sombra azul suave -->
+        <rect x="85" y="310" width="130" height="80" fill="#ffffff" stroke="#4169E1" />
+        <text x="150" y="350">Lenguaje máquina</text>
+
+        <!-- Nivel 3: Lenguaje de programación de bajo nivel -->
+        <rect x="260" y="315" width="180" height="80" fill="#E6F0FF" class="box-shadow"/> <!-- Sombra azul suave -->
+        <rect x="260" y="310" width="180" height="80" fill="#ffffff" stroke="#4169E1" />
+        <text x="350" y="340">
+            <tspan x="350" dy="-0.6em">Lenguaje de</tspan>
+            <tspan x="350" dy="1.2em">programación de</tspan>
+            <tspan x="350" dy="1.2em">bajo nivel</tspan>
+        </text>
+
+        <!-- Nivel 3: Lenguaje de programación de alto nivel -->
+        <rect x="460" y="315" width="160" height="80" fill="#E6F0FF" class="box-shadow"/> <!-- Sombra azul suave -->
+        <rect x="460" y="310" width="160" height="80" fill="#ffffff" stroke="#4169E1" />
+        <text x="550" y="340">
+            <tspan x="550" dy="-0.6em">Lenguaje de</tspan>
+            <tspan x="550" dy="1.2em">programación</tspan>
+            <tspan x="550" dy="1.2em">de alto nivel</tspan>
+        </text>
+
+        <!-- Nivel 3: Programación Imperativa -->
+        <rect x="625" y="315" width="150" height="80" fill="#E6F0FF" class="box-shadow"/> <!-- Sombra azul suave -->
+        <rect x="625" y="310" width="150" height="80" fill="#ffffff" stroke="#4169E1" />
+        <text x="700" y="345">
+            <tspan x="700" dy="0">Programación</tspan>
+            <tspan x="700" dy="1.2em">Imperativa</tspan>
+        </text>
+
+        <!-- Nivel 3: Programación Declarativa -->
+        <rect x="825" y="315" width="150" height="80" fill="#E6F0FF" class="box-shadow"/> <!-- Sombra azul suave -->
+        <rect x="825" y="310" width="150" height="80" fill="#ffffff" stroke="#4169E1" />
+        <text x="900" y="345">
+            <tspan x="900" dy="0">Programación</tspan>
+            <tspan x="900" dy="1.2em">Declarativa</tspan>
+        </text>
+
+        <!-- Nivel 4: La programación orientada a objetos (POO) -->
+        <rect x="560" y="445" width="180" height="80" fill="#E8F5E9" class="box-shadow"/> <!-- Sombra verde suave -->
+        <rect x="560" y="440" width="180" height="80" fill="#ffffff" stroke="#4CAF50" />
+        <text x="650" y="470">
+            <tspan x="650" dy="-0.6em">La programación</tspan>
+            <tspan x="650" dy="1.2em">orientada a</tspan>
+            <tspan x="650" dy="1.2em">objetos (POO)</tspan>
+        </text>
+
+        <!-- Nivel 4: La programación estructurada -->
+        <rect x="760" y="445" width="180" height="80" fill="#E8F5E9" class="box-shadow"/> <!-- Sombra verde suave -->
+        <rect x="760" y="440" width="180" height="80" fill="#ffffff" stroke="#4CAF50" />
+        <text x="850" y="475">
+            <tspan x="850" dy="0">La programación</tspan>
+            <tspan x="850" dy="1.2em">estructurada</tspan>
+        </text>
+
+    </svg>
+        <div class="titulo-figura">Figura 2. Clasificación de los Lenguajes de Programación </div>
+     
+        <h3>Clasificación de los Lenguajes de Programación</h3>
+        <strong>Por niveles:</strong>
+        <ul>
+          <li>
+            <strong>Lenguaje máquina:</strong> Es el único que entiende el
+            ordenador. Sus instrucciones son unos y ceros.
+          </li>
+          <li>
+            <strong>Lenguaje de programación de bajo nivel:</strong> Se asemeja
+            al lenguaje máquina, pero utiliza mnemotécnicos en lugar de unos y
+            ceros. Necesita traducción al lenguaje máquina.
+          </li>
+          <li>
+            <strong>Lenguaje de programación de alto nivel:</strong> Utiliza
+            sentencias cercanas al idioma inglés y al razonamiento humano.
+          </li>
+        </ul>
+        <strong>Por paradigma de programación:</strong>
+        <ul>
+          <li>
+            <strong>Programación Imperativa:</strong> Se basa en la ejecución de
+            instrucciones que modifican el estado del programa.
+          </li>
+                    <ul>            <li>
+                <strong>La programación orientada a objetos (POO):</strong> Se basa
+                en la creación de objetos que contienen datos y métodos para
+                manipular esos datos.
+            </li>
+            <li>
+                <strong>La programación estructurada:</strong> Se basa en la
+                utilización de estructuras de control como bucles y condicionales
+                para organizar el flujo del programa.
+            </li></ul>
+
+          <li>
+            <strong>Programación Declarativa:</strong> Se centra en la
+            descripción de lo que se quiere lograr, sin especificar cómo hacerlo.
+          </li>
+
+        </ul>
+
+        <h2>Programación estructurada  </h2>
+        <p>
+          La programación estructurada es un paradigma de programación que
+          promueve la utilización de estructuras de control como bucles y
+          condicionales para organizar el flujo del programa. Este enfoque
+          facilita la comprensión, el mantenimiento y la depuración del código,
+          ya que se evita el uso excesivo de saltos incondicionales (como el
+          comando "goto") y se fomenta la modularidad y la claridad en la
+          lógica del programa.
+          Por ejemplo, en la programación estructurada se utilizan funciones o procedimientos para dividir el código en bloques lógicos, lo que permite una mejor organización y reutilización del código. Este paradigma es ampliamente utilizado en lenguajes de programación como C, Pascal y Ada.
+          Los scripts de programación estructurada suelen seguir un flujo de control lineal y secuencial, lo que facilita la comprensión del programa y reduce la probabilidad de errores. Además, la programación estructurada fomenta la legibilidad del código, lo que es esencial para el trabajo en equipo y el mantenimiento a largo plazo de los proyectos de software.
+
+        </p>
+        <strong>Ejemplo de programación estructurada:</strong>
+        <pre>
+          <code>
+            #include &lt;stdio.h&gt;
+
+            void imprimirTablaMultiplicar(int numero) {
+                for (int i = 1; i &lt;= 10; i++) {
+                    printf("%d x %d = %d\n", numero, i, numero * i);
+                }
+            }
+
+            int main() {
+                int numero;
+                printf("Ingrese un número: ");
+                scanf("%d", &amp;numero);
+                imprimirTablaMultiplicar(numero);
+                return 0;
+            }
+          </code>
+        </pre>
+        <p>
+            En este ejemplo, se define una función llamada
+            <code>imprimirTablaMultiplicar</code> que toma un número como
+            parámetro y utiliza un bucle <code>for</code> para imprimir la tabla
+            de multiplicar de ese número. La función <code>main</code> solicita al
+            usuario que ingrese un número y luego llama a la función para mostrar
+            la tabla correspondiente.
+        </p>
+
+      
+
+        <h2>Programación orientada a objetos (POO)</h2>
+        <p>
+          La programación orientada a objetos (POO) es un paradigma de
+          programación que se basa en la creación de objetos, los cuales
+          encapsulan datos y métodos para manipular esos datos. Este enfoque
+          permite modelar el mundo real de manera más intuitiva, facilitando la
+          reutilización de código, la modularidad y la organización del
+          software. Los conceptos 4 pilares básicos de la POO son: 
+          abstracción, herencia, polimorfismo y encapsulamiento.
+        </p>
+        <p>Cuando creamos un objeto en POO, estamos <b>creando una instancia</b> de una clase. Esto se hace con el método constructor asociado a la clase. Cada objeto tiene sus propios valores para los atributos y puede ejecutar los métodos definidos en su clase. Por ejemplo, si tenemos una clase "Coche" con atributos como "color" y "marca", podemos crear varios objetos de la clase "Coche", cada uno con su propio color y marca. Además, podemos definir métodos como "arrancar()" y "frenar()" que los objetos pueden utilizar para realizar acciones específicas.</p>
+        <p>Los nombres de las clases van siempre en singular y se escriben en mayúscula la primera letra de cada palabra (CamelCase).</p>
+
+
+        <br><strong> 🧠 Abstracción:</strong>
+        <br>
+        <p>Es la capacidad de ocultar detalles complejos y mostrar solo la información esencial. Por ejemplo, al crear una aplicación de música,  no es necesario conocer los detalles internos del funcionamiento del reproductor para utilizarlo. Además, cuando pensemos en los atributos necesarios para una clase, escogeremos únicamente los necesarios para la aplicación.  </p>
+
+        <br><strong> 🔒 Encapsulamiento:</strong>
+        <br>
+        <p>Es la práctica de ocultar los detalles internos de un objeto y exponer solo lo necesario a través de métodos públicos. Por ejemplo, si tenemos una clase "CuentaBancaria" con un atributo "saldo", podemos encapsular ese atributo y proporcionar métodos públicos como "depositar()" y "retirar()" para interactuar con el saldo sin exponerlo directamente.</p>
+        <p> En Java utilizamos las palabras reservadas "private", "protected" y "public" para controlar el acceso a los atributos y métodos.</p>
+        <ul>
+          <li>private: El atributo o método solo es accesible dentro de la misma clase.</li>
+          <li>protected: El atributo o método es accesible dentro de la misma clase y sus subclases.</li>
+          <li>public: El atributo o método es accesible desde cualquier lugar.</li>
+        </ul>
+
+        <br><strong> 👨‍👩‍👧‍👦 Herencia:</strong>
+        <br>
+        <p>Es la capacidad de crear nuevas clases basadas en clases existentes, heredando sus atributos y métodos. Por ejemplo, si tenemos una clase "Animal" con atributos como "nombre" y "edad", podemos crear una clase "Perro" que herede esos atributos y agregue un atributo adicional como "raza".</p>  
+        <p>Recordemos que en Java se utiliza la palabra clave "extends" para indicar que una clase hereda de otra.
+
+        </p>
+        <br><strong> 🐶🐱 Polimorfismo:</strong>
+        <br>
+        <p>Es la capacidad de un objeto de tomar diferentes formas o comportamientos según el contexto. Por ejemplo, si tenemos una clase "Animal" con un método "hacerSonido()", podemos tener diferentes implementaciones de ese método en las clases "Perro" y "Gato", donde el perro ladra 🐶 y el gato maúlla 🐱.</p>
+        <p>Recordemos que en Java, utilizaremos la anotación @Override para indicar que un método está sobrescribiendo uno de la clase padre.</p>
+        
+
+
+         </section>
+
+      <!-- TEMA 3 -->
+      <section>
+        <h2>3. Desarrollo de Software y Ciclos de Vida</h2>
+        <p>
+          El Desarrollo de Software es todo el proceso que ocurre desde que se
+          concibe una idea hasta que un programa está implementado en el
+          ordenador y funcionando.
+        </p>
+        <h3>Modelos de Ciclos de Vida:</h3>
+        <ul>
+          <li>
+            <strong>Modelo en Cascada:</strong> Modelo clásico donde las etapas
+            pasan de una a otra sin retorno posible. Requiere conocer de
+            antemano todos los requisitos.
+          </li>
+          <li>
+            <strong>Modelo en Cascada con Realimentación:</strong> Introduce
+            realimentación entre etapas para poder volver atrás en cualquier
+            momento y corregir o modificar aspectos.
+          </li>
+          <li>
+            <strong>Modelos Evolutivos:</strong> Tienen en cuenta la naturaleza
+            cambiante del software. Incluyen el
+            <em>Modelo Iterativo Incremental</em> y el
+            <em>Modelo en Espiral</em>.
+          </li>
+        </ul>
+        <h3>Herramientas CASE</h3>
+        <p>
+          Las herramientas CASE automatizan las tareas para ganar fiabilidad y
+          tiempo, reduciendo costes en el desarrollo de software. Se dividen
+          en U-CASE (planificación y análisis), M-CASE (análisis y diseño) y
+          L-CASE (programación, depuración y pruebas).
+        </p>
+      </section>
+
+      <!-- TEMA 4 -->
+      <section>
+        <h2>4. Lenguajes de Programación</h2>
+        <p>
+          Un Lenguaje de Programación es un idioma creado artificialmente para
+          obtener un código que el hardware pueda entender y ejecutar. Evolución
+          de los lenguajes:
+        </p>
+        <ul>
+          <li>
+            <strong>Lenguaje máquina:</strong> Sus instrucciones son unos y
+            ceros, y es el único que entiende directamente el ordenador.
+          </li>
+          <li>
+            <strong>Lenguaje ensamblador:</strong> Utiliza mnemotécnicos en
+            lugar de unos y ceros. Necesita traducción al lenguaje máquina.
+          </li>
+          <li>
+            <strong>Lenguaje de alto nivel:</strong> Utiliza sentencias cercanas
+            al idioma inglés y al razonamiento humano.
+          </li>
+          <li>
+            <strong>Lenguajes visuales:</strong> Se programa gráficamente
+            diseñando la apariencia y el código se genera automáticamente.
+          </li>
+        </ul>
+
+
+        
+      </section>
+
+      <!-- TEMA 5 -->
+      <section>
+        <h2>5. Fases en el Desarrollo y Ejecución del Software</h2>
+        <p>
+          Independientemente del modelo de ciclo de vida elegido, hay etapas de
+          obligado cumplimiento para construir software fiable:
+        </p>
+        <ul>
+          <li>
+            <strong>1. Análisis de Requisitos:</strong> Es la fase más
+            importante. Se especifican los requisitos funcionales (qué hará el
+            sistema) y no funcionales (tiempos de respuesta, legislación, etc.).
+          </li>
+          <li>
+            <strong>2. Diseño:</strong> Se divide el sistema en partes,
+            estableciendo relaciones y determinando la función de cada una.
+          </li>
+          <li>
+            <strong>3. Codificación:</strong> Se elige un lenguaje de
+            programación y se traduce la información a código fuente.
+            <ul>
+              <li>
+                <em>Código Fuente:</em> Escrito por programadores, no es
+                ejecutable por la máquina.
+              </li>
+              <li>
+                <em>Código Objeto:</em> Código binario intermedio que resulta de
+                compilar el código fuente.
+              </li>
+              <li>
+                <em>Código Ejecutable:</em> Código binario que resulta de
+                enlazar archivos objeto, y es inteligible por la computadora.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>4. Pruebas:</strong> Se prueba el software para asegurar su
+            validación. Incluyen pruebas unitarias (partes por separado) y
+            pruebas de integración (sistema completo).
+          </li>
+          <li>
+            <strong>5. Documentación:</strong> Guardar y documentar toda la
+            información para facilitar revisiones y el uso. Comprende la guía
+            técnica, guía de uso y guía de instalación.
+          </li>
+          <li>
+            <strong>6. Explotación:</strong> Es la instalación, configuración y
+            funcionamiento de la aplicación en el equipo del cliente.
+          </li>
+          <li>
+            <strong>7. Mantenimiento:</strong> Es la etapa más larga del ciclo
+            de vida. Consiste en la mejora, optimización y actualización del
+            software. Puede requerir cambios perfectivos, evolutivos,
+            adaptativos o correctivos.
+          </li>
+        </ul>
+      </section>
+
+      
+
+      <div class="highlight">
+        <p>
+          ¡Mucho ánimo con el estudio de las oposiciones! Dominar estos
+          conceptos teóricos es el primer paso para conseguir tu plaza.
+        </p>
+      </div>
+    </main>
+  </body>
 </html>

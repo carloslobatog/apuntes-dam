@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-width=1.0" />
+    <title>Apuntes de Entornos de Desarrollo</title>
+    <style>
+      :root {
+        --primary-color: #2b2a68;
+        --secondary-color: #4a34db;
+        --bg-color: #f9fbfd;
+        --text-color: #333;
+        --card-bg: #ffffff;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      section {
+        
+        background-color: var(--card-bg);
+        border-radius: 0px;
+        padding: 3rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--secondary-color);
+      }
+      h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--secondary-color);
+      }
+      p {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+      ul {
+        padding-left: 1.5rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      .highlight {
+        background-color: #e8f4f8;
+        padding: 1rem;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+      .titulo-figura {
+        text-align: center;
+        font-style: italic;
+        margin-top: 0.5rem;
+      } 
+      svg {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+        }
+    
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Entornos de Desarrollo</h1>
+      <p>ELEMENTOS DEL DESARROLLO DEL SOFTWARE</p>
+      <p><small>Autor: Carlos Lobato Gómez</small></p>
+    </header>
+
+<main>
+        <!-- SECCIÓN 1: PROTOCOLO HTTP -->
+        <section>
+            <h1>Protocolo HTTP</h1>
+            <p>El protocolo <strong>HTTP (Protocolo de Transferencia de Hipertexto)</strong> es la base de la comunicación en la World Wide Web. Funciona bajo un modelo cliente-servidor donde el navegador (cliente) hace una petición y el servidor web devuelve una respuesta.</p>
+            
+            <ul>
+                <li><span class="highlight">HTTP (Puerto 80):</span> Transmite toda la información en texto plano. Si un atacante intercepta la comunicación en cualquier punto de la red (un router comprometido, una red Wi-Fi pública), puede leer exactamente lo que el usuario está enviando o recibiendo. No hay confidencialidad ni integridad garantizada.</li>
+                <li><span class="highlight">HTTPS (Puerto 443):</span> Es la versión segura. Añade una capa criptográfica (SSL/TLS) entre HTTP y TCP. Antes de enviar cualquier dato, el cliente y el servidor negocian un túnel cifrado. Si alguien intercepta los paquetes, solo verá un bloque de datos incomprensible (Application Data) y no podrá leer contraseñas, cookies de sesión ni el contenido de la web.</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 2: MÉTODOS HTTP -->
+        <section>
+            <h2>Los Métodos HTTP principales</h2>
+            <p>¿Cómo viajan los datos desde el navegador al servidor? Los dos métodos fundamentales son:</p>
+
+            <h3>1. Método GET (Petición de recursos)</h3>
+            <p>Se utiliza para solicitar información al servidor (ej. cargar una página web, una imagen).</p>
+            <ul>
+                <li><strong>El problema de seguridad:</strong> Si enviamos datos en un GET (por ejemplo, un formulario de login mal programado), estos viajan visibles en la propia URL: <br>
+                <code>http://miservidor.com/login.php?usuario=admin&clave=12345</code></li>
+                <li>Incluso si usamos HTTPS, enviar credenciales por GET es una vulnerabilidad grave porque esa URL quedará registrada en el historial del navegador, en los logs del servidor web (ej. <code>/var/log/nginx/access.log</code>) y en proxies intermedios.</li>
+            </ul>
+
+            <h3>2. Método POST (Envío de datos)</h3>
+            <p>Se utiliza para enviar información sensible o extensa al servidor, como el envío de un formulario de inicio de sesión o la subida de un archivo.</p>
+            <ul>
+                <li><strong>La ventaja:</strong> Los datos no van en la URL, sino ocultos en el cuerpo (body) del mensaje HTTP.</li>
+                <li><strong>El peligro real:</strong> Que no se vean en la URL de la pantalla no significa que estén cifrados. Si se usa POST sobre HTTP puro, el cuerpo del mensaje viaja en texto claro por la red de la clase.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

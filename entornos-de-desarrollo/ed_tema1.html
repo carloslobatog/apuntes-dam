@@ -6,8 +6,8 @@
     <title>Apuntes de Entornos de Desarrollo</title>
     <style>
       :root {
-        --primary-color: #2b2a68;
-        --secondary-color: #4a34db;
+        --primary-color: #1e7ad6;
+        --secondary-color: #1e7ad6d0;
         --bg-color: #f9fbfd;
         --text-color: #333;
         --card-bg: #ffffff;
@@ -81,8 +81,81 @@
       } 
       svg {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
+            background-color:#1e7ad63f;
             border-radius: 8px;
+            width: 100%;
+
+            
+            
+        }
+
+
+      .code {
+            background-color: #090505;
+            padding: 0.5rem;
+            border-radius: 8px;
+            color: white;
+            font-family: "Courier New", Courier, monospace;
+            flex-grow: 1 ;
+          }
+      .code .keyword {
+        color: #cc99cd;
+          }
+      .code .type {
+        color: #f08d49;
+          }
+      .code .string {
+        color: #7ec699;
+          }
+      .code .method {
+        color: #f8c555;
+          }
+      .contenedor {
+            width: 100%;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: no-wrap;
+        }
+
+        .box {
+            fill: #e3f2fd;
+            stroke: #1976d2;
+            stroke-width: 2.5;
+            rx: 8; /* Bordes redondeados */
+            ry: 8;
+        }
+        .side-box {
+            fill: #fff3e0;
+            stroke: #f57c00;
+            stroke-width: 2.5;
+            rx: 8;
+            ry: 8;
+        }
+        .text-bold {
+            font-weight: 600;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+        .text-title {
+            font-weight: 700;
+            text-anchor: middle;
+            dominant-baseline: central;
+            font-size: 16px;
+            fill: #2c3e50;
+        }
+        .arrow {
+            stroke: #546e7a;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .dashed-line {
+            stroke: #90a4ae;
+            stroke-width: 1.5;
+            stroke-dasharray: 6, 4;
+            fill: none;
+            marker-end: url(#arrowhead-dashed);
+            marker-start: url(#arrowhead-dashed-start);
         }
     
     </style>
@@ -145,6 +218,31 @@
           mayor flexibilidad y facilidad de depuración, aunque puede resultar en
           un rendimiento más lento en comparación con los lenguajes compilados.
         </p>
+        <p>Algunos ejemplos de lenguajes interpretados son Python, JavaScript y Ruby.</p>
+
+        
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="100%" role="img" aria-labelledby="interpreted-title">
+            <title id="interpreted-title">Logos de Python, JavaScript y Ruby</title>
+            <g transform="translate(120 70)">
+              <path d="M-26-35h22c11 0 17 6 17 17v12h-33c-7 0-12 5-12 12v10h-8c-9 0-15-6-15-15v-7c0-18 11-29 29-29z" fill="#3776ab"/>
+              <circle cx="-8" cy="-26" r="2.5" fill="#fff"/>
+              <path d="M26 35H4c-11 0-17-6-17-17V6h33c7 0 12-5 12-12v-10h8c9 0 15 6 15 15v7c0 18-11 29-29 29z" fill="#ffd343"/>
+              <circle cx="8" cy="26" r="2.5" fill="#fff"/>
+              <text x="0" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#3776ab">Python</text>
+            </g>
+            <g transform="translate(360 70)">
+              <rect x="-38" y="-40" width="76" height="76" rx="8" fill="#f7df1e"/>
+              <text x="0" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#323330">JS</text>
+              <text x="0" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#323330">JavaScript</text>
+            </g>
+            <g transform="translate(600 70)">
+              <path d="M0-42 34-28 42-4 0 38-42-4-34-28z" fill="#cc342d"/>
+              <path d="M-34-28 0-22 34-28M-42-4h84M0-22 0 38M-34-28-18-4 0-22 18-4 34-28" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>
+              <text x="0" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#cc342d">Ruby</text>
+            </g>
+          </svg>
+        
+        
         <h3>Lenguajes compilados</h3>
         <p>
           Los lenguajes compilados requieren un proceso de compilación previo,
@@ -415,8 +513,21 @@ ordenador. Contiene todas las instrucciones necesarias para que el programa func
           </li>
 
         </ul>
-
-        <h2>Programación estructurada  </h2>
+        <h2>Programación imperativa  </h2>
+        <p>
+          La programación imperativa es un paradigma de programación que se
+          centra en describir cómo se debe realizar una tarea mediante una
+          secuencia de instrucciones que modifican el estado del programa. En
+          este enfoque, el programador especifica paso a paso las acciones que
+          el ordenador debe ejecutar para lograr un resultado deseado. La
+          programación imperativa se basa en la manipulación directa de variables
+          y estructuras de datos, y utiliza estructuras de control como bucles y
+          condicionales para controlar el flujo del programa.
+        </p>
+        <p>
+          La mayor parte del código que escribiremos este año seguirá el paradigma de programación imperativa, ya que es el más común y ampliamente utilizado en la mayoría de los lenguajes de programación. Este enfoque permite a los programadores tener un control detallado sobre el flujo de ejecución y la manipulación de datos, lo que facilita la creación de programas eficientes y funcionales.
+          Ejemplos de este paradigma incluyen lenguajes como <strong>C, C++, Java y Python</strong>, entre otros. La programación imperativa es especialmente útil para tareas que requieren un control preciso sobre el estado del programa y la ejecución de instrucciones en un orden específico.
+        <h3>Programación estructurada  </h3>
         <p>
           La programación estructurada es un paradigma de programación que
           promueve la utilización de estructuras de control como bucles y
@@ -460,7 +571,7 @@ ordenador. Contiene todas las instrucciones necesarias para que el programa func
 
       
 
-        <h2>Programación orientada a objetos (POO)</h2>
+        <h3>Programación orientada a objetos (POO)</h3>
         <p>
           La programación orientada a objetos (POO) es un paradigma de
           programación que se basa en la creación de objetos, los cuales
@@ -473,6 +584,51 @@ ordenador. Contiene todas las instrucciones necesarias para que el programa func
         <p>Cuando creamos un objeto en POO, estamos <b>creando una instancia</b> de una clase. Esto se hace con el método constructor asociado a la clase. Cada objeto tiene sus propios valores para los atributos y puede ejecutar los métodos definidos en su clase. Por ejemplo, si tenemos una clase "Coche" con atributos como "color" y "marca", podemos crear varios objetos de la clase "Coche", cada uno con su propio color y marca. Además, podemos definir métodos como "arrancar()" y "frenar()" que los objetos pueden utilizar para realizar acciones específicas.</p>
         <p>Los nombres de las clases van siempre en singular y se escriben en mayúscula la primera letra de cada palabra (CamelCase).</p>
 
+        <div class="contenedor">
+          <div class="code">
+            
+            
+              <pre>
+                <code>
+    <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">Coche</span> {
+    <span class="keyword">private</span> <span class="type">String</span> color;
+    <span class="keyword">private</span> <span class="type">String</span> marca;
+
+    //Método constructor de la clase Coche
+    <span class="keyword">public</span> <span class="type">Coche</span>(<span class="type">String</span> color, <span class="type">String</span> marca) {
+      <span class="keyword">this</span>.color = color;
+      <span class="keyword">this</span>.marca = marca;
+    }
+
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">arrancar</span>() {
+      <span class="type">System</span>.out.<span class="method">println</span>(<span class="string">"El coche está arrancado."</span>);
+    }
+
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">frenar</span>() {
+      <span class="type">System</span>.out.<span class="method">println</span>(<span class="string">"El coche está frenando."</span>);
+    }
+  }
+                </code>
+              </pre>
+            </div>
+
+      <div class="code">
+        <pre>
+          <code>
+      <span class="keyword">public</span> <span class="keyword">class</span> Main {
+          <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+              <span class="type">Coche</span> miCoche = <span class="keyword">new</span> <span class="type">Coche</span>(<span class="string">"Rojo"</span>, <span class="string">"Toyota"</span>);
+              miCoche.<span class="method">arrancar</span>();
+              miCoche.<span class="method">frenar</span>();
+          }
+        }
+          </code>
+        </pre>
+
+
+        </div>
+          </div>
+        </div>
 
         <br><strong> 🧠 Abstracción:</strong>
         <br>
@@ -501,70 +657,195 @@ ordenador. Contiene todas las instrucciones necesarias para que el programa func
         
 
 
-         </section>
+    
 
-      <!-- TEMA 3 -->
-      <section>
-        <h2>3. Desarrollo de Software y Ciclos de Vida</h2>
+        <h2>Programación declarativa</h2>
         <p>
-          El Desarrollo de Software es todo el proceso que ocurre desde que se
-          concibe una idea hasta que un programa está implementado en el
-          ordenador y funcionando.
+          La programación declarativa es un paradigma de programación que se
+          centra en describir qué se quiere lograr, en lugar de cómo hacerlo.
+          En este enfoque, el programador especifica las propiedades del
+          resultado deseado, y el sistema se encarga de encontrar la mejor forma
+          de alcanzarlo. Este paradigma es especialmente útil para tareas que
+          involucran lógica compleja o búsqueda de soluciones.
         </p>
-        <h3>Modelos de Ciclos de Vida:</h3>
-        <ul>
-          <li>
-            <strong>Modelo en Cascada:</strong> Modelo clásico donde las etapas
-            pasan de una a otra sin retorno posible. Requiere conocer de
-            antemano todos los requisitos.
-          </li>
-          <li>
-            <strong>Modelo en Cascada con Realimentación:</strong> Introduce
-            realimentación entre etapas para poder volver atrás en cualquier
-            momento y corregir o modificar aspectos.
-          </li>
-          <li>
-            <strong>Modelos Evolutivos:</strong> Tienen en cuenta la naturaleza
-            cambiante del software. Incluyen el
-            <em>Modelo Iterativo Incremental</em> y el
-            <em>Modelo en Espiral</em>.
-          </li>
-        </ul>
-        <h3>Herramientas CASE</h3>
-        <p>
-          Las herramientas CASE automatizan las tareas para ganar fiabilidad y
-          tiempo, reduciendo costes en el desarrollo de software. Se dividen
-          en U-CASE (planificación y análisis), M-CASE (análisis y diseño) y
-          L-CASE (programación, depuración y pruebas).
-        </p>
+        <p>Ejemplos de lenguajes declarativos incluyen <strong>Dart (flutter)</strong> y <strong>SQL</strong>.</p>
+        <div class="code">
+        <pre>
+          <code>
+            <span class="comment">// Ejemplo de programación declarativa en Dart (Flutter)</span>
+            <span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;
+
+            <span class="keyword">void</span> <span class="method">main</span>() {
+              <span class="method">runApp</span>(<span class="type">MyApp</span>());
+            }
+
+            <span class="keyword">class</span> <span class="type">MyApp</span> <span class="keyword">extends</span> <span class="type">StatelessWidget</span> {
+              <span class="annotation">@override</span>
+              <span class="type">Widget</span> <span class="method">build</span>(<span class="type">BuildContext</span> context) {
+                <span class="keyword">return</span> <span class="type">MaterialApp</span>(
+                  home: <span class="type">Scaffold</span>(
+                    appBar: <span class="type">AppBar</span>(title: <span class="type">Text</span>(<span class="string">'Ejemplo Declarativo'</span>)),
+                    body: <span class="type">Center</span>(
+                      child: <span class="type">Column</span>(
+                        mainAxisAlignment: <span class="type">MainAxisAlignment</span>.center,
+                        children: &lt;<span class="type">Widget</span>&gt;[
+                          <span class="type">Text</span>(<span class="string">'Hola, Mundo!'</span>),
+                          <span class="type">ElevatedButton</span>(
+                            onPressed: () {
+                              <span class="method">print</span>(<span class="string">'Botón presionado'</span>);
+                            },
+                            child: <span class="type">Text</span>(<span class="string">'Presionar'</span>),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }
+          </code>
+        </pre>
+    </div>
+    <br>
+    <div class="code">
+        <pre><code>
+          -- Ejemplo de programación declarativa en SQL
+          SELECT nombre, edad
+          FROM usuarios
+          WHERE edad > 18
+          ORDER BY nombre;
+        </code></pre>
+        </div>
       </section>
 
       <!-- TEMA 4 -->
       <section>
-        <h2>4. Lenguajes de Programación</h2>
+        <h2>Desgranando el proceso de compilación</h2>
         <p>
-          Un Lenguaje de Programación es un idioma creado artificialmente para
-          obtener un código que el hardware pueda entender y ejecutar. Evolución
-          de los lenguajes:
+          Recordemos que el proceso de compilación es un conjunto de pasos que transforman el
+          código fuente escrito en un lenguaje de programación de alto nivel
+          en un programa ejecutable que puede ser entendido y ejecutado por la
+          computadora. Este proceso es esencial para garantizar que el código
+          sea correcto, eficiente y funcional.
         </p>
+
+        <div class="svg-container">
+    <svg width="800" height="750" viewBox="0 0 800 750" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- Flecha para las líneas principales -->
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a" />
+            </marker>
+            <!-- Flecha para líneas discontinuas (ida) -->
+            <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#90a4ae" />
+            </marker>
+            <!-- Flecha para líneas discontinuas (vuelta) -->
+            <marker id="arrowhead-dashed-start" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#90a4ae" />
+            </marker>
+        </defs>
+
+        <!-- Entrada y Salida -->
+        <text x="400" y="30" class="text-title">Programa Fuente (Lenguaje de Alto Nivel)</text>
+        <text x="400" y="720" class="text-title">Programa Objeto (Código Máquina)</text>
+
+        <!-- Cajas Principales (Fases) -->
+        <rect x="275" y="70" width="250" height="50" class="box" />
+        <text x="400" y="95" class="text-bold">Analizador Léxico</text>
+
+        <rect x="275" y="160" width="250" height="50" class="box" />
+        <text x="400" y="185" class="text-bold">Analizador Sintáctico</text>
+
+        <rect x="275" y="250" width="250" height="50" class="box" />
+        <text x="400" y="275" class="text-bold">Analizador Semántico</text>
+
+        <rect x="275" y="340" width="250" height="50" class="box" />
+        <text x="400" y="365" class="text-bold">Generador de Código Intermedio</text>
+
+        <rect x="275" y="430" width="250" height="50" class="box" />
+        <text x="400" y="455" class="text-bold">Optimizador de Código</text>
+
+        <rect x="275" y="520" width="250" height="50" class="box" />
+        <text x="400" y="545" class="text-bold">Generador de Código Objeto</text>
+
+        <!-- Cajas Laterales -->
+        <!-- Tabla de Símbolos -->
+        <rect x="50" y="70" width="120" height="500" class="side-box" />
+        <text x="110" y="320" class="text-bold" transform="rotate(-90, 110, 320)" font-size="16">Tabla de Símbolos</text>
+
+        <!-- Manejador de Errores -->
+        <rect x="630" y="70" width="120" height="500" class="side-box" />
+        <text x="690" y="320" class="text-bold" transform="rotate(90, 690, 320)" font-size="16">Manejador de Errores</text>
+
+        <!-- Flechas Principales (Descendentes) -->
+        <line x1="400" y1="45" x2="400" y2="60" class="arrow" />
+        <line x1="400" y1="120" x2="400" y2="150" class="arrow" />
+        <line x1="400" y1="210" x2="400" y2="240" class="arrow" />
+        <line x1="400" y1="300" x2="400" y2="330" class="arrow" />
+        <line x1="400" y1="390" x2="400" y2="420" class="arrow" />
+        <line x1="400" y1="480" x2="400" y2="510" class="arrow" />
+        <line x1="400" y1="570" x2="400" y2="700" class="arrow" />
+
+        <!-- Conexiones a Tabla de Símbolos (Izquierda) -->
+        <line x1="275" y1="95" x2="178" y2="95" class="dashed-line" />
+        <line x1="275" y1="185" x2="178" y2="185" class="dashed-line" />
+        <line x1="275" y1="275" x2="178" y2="275" class="dashed-line" />
+        <line x1="275" y1="365" x2="178" y2="365" class="dashed-line" />
+        <line x1="275" y1="455" x2="178" y2="455" class="dashed-line" />
+        <line x1="275" y1="545" x2="178" y2="545" class="dashed-line" />
+
+        <!-- Conexiones a Manejador de Errores (Derecha) -->
+        <line x1="525" y1="95" x2="622" y2="95" class="dashed-line" />
+        <line x1="525" y1="185" x2="622" y2="185" class="dashed-line" />
+        <line x1="525" y1="275" x2="622" y2="275" class="dashed-line" />
+        <line x1="525" y1="365" x2="622" y2="365" class="dashed-line" />
+        <line x1="525" y1="455" x2="622" y2="455" class="dashed-line" />
+        <line x1="525" y1="545" x2="622" y2="545" class="dashed-line" />
+
+    </svg>
+</div>
+
+        <p>El proceso de compilación consta de varias fases:</p>
         <ul>
           <li>
-            <strong>Lenguaje máquina:</strong> Sus instrucciones son unos y
-            ceros, y es el único que entiende directamente el ordenador.
+            <strong>1. Análisis léxico:</strong> El compilador lee el código
+            fuente y lo divide en unidades léxicas llamadas tokens, que son
+            secuencias de caracteres que representan palabras clave, identificadores, operadores y otros elementos del lenguaje.
           </li>
           <li>
-            <strong>Lenguaje ensamblador:</strong> Utiliza mnemotécnicos en
-            lugar de unos y ceros. Necesita traducción al lenguaje máquina.
+            <strong>2. Análisis sintáctico:</strong> El compilador verifica la
+            estructura del código fuente para asegurarse de que cumple con las
+            reglas gramaticales del lenguaje de programación. Si se detectan
+            errores de sintaxis, el compilador genera mensajes de error.
+            <p>Un ejemplo de fallo en el análisis sintáctico es la omisión de un punto y coma al final de una instrucción en lenguajes como C o Java. Otro ejemplo es la utilización incorrecta de paréntesis o llaves.</p>
           </li>
           <li>
-            <strong>Lenguaje de alto nivel:</strong> Utiliza sentencias cercanas
-            al idioma inglés y al razonamiento humano.
+            <strong>3. Análisis semántico:</strong> El compilador verifica el
+            significado del código fuente, asegurándose de que las operaciones
+            y expresiones sean válidas y coherentes con el contexto del programa.
+            <p>Un ejemplo de fallo en el análisis semántico es la utilización de una variable sin haberla declarado previamente o asignar el valor de un tipo incompatible (como String a int).</p>
           </li>
           <li>
-            <strong>Lenguajes visuales:</strong> Se programa gráficamente
-            diseñando la apariencia y el código se genera automáticamente.
+            <strong>4. Generación de código intermedio:</strong> El compilador
+            traduce el código fuente en un código intermedio que es más fácil
+            de optimizar y analizar.
+          </li>
+          <li>
+            <strong>5. Optimización de código:</strong> El compilador realiza
+            mejoras en el código intermedio para aumentar la eficiencia y el
+            rendimiento del programa final.
+          </li>
+          <li>
+            <strong>6. Generación de código objeto:</strong> El compilador
+            traduce el código intermedio optimizado en código objeto, que es un
+            conjunto de instrucciones en lenguaje máquina que puede ser
+            ejecutado por la computadora.
           </li>
         </ul>
+
+
+      
 
 
         

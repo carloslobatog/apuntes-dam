@@ -1,138 +1,578 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-width=1.0" />
-    <title>Apuntes de Entornos de Desarrollo</title>
-    <style>
-      :root {
-        --primary-color: #2b2a68;
-        --secondary-color: #4a34db;
-        --bg-color: #f9fbfd;
-        --text-color: #333;
-        --card-bg: #ffffff;
-      }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        background-color: var(--primary-color);
-        color: white;
-        text-align: center;
-        padding: 2rem 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-      main {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-      section {
-        
-        background-color: var(--card-bg);
-        border-radius: 0px;
-        padding: 3rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        border-left: 5px solid var(--secondary-color);
-      }
-      h2 {
-        color: var(--primary-color);
-        border-bottom: 2px solid #ecf0f1;
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-      h3 {
-        color: var(--secondary-color);
-      }
-      p {
-        margin-bottom: 1rem;
-        text-align: justify;
-      }
-      ul {
-        padding-left: 1.5rem;
-      }
-      li {
-        margin-bottom: 0.5rem;
-      }
-      .highlight {
-        background-color: #e8f4f8;
-        padding: 1rem;
-        border-radius: 5px;
-        font-weight: 500;
-      }
-      .titulo-figura {
-        text-align: center;
-        font-style: italic;
-        margin-top: 0.5rem;
-      } 
-      svg {
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-width=1.0" />
+        <title>Apuntes de Entornos de Desarrollo</title>
+        <style>
+          :root {
+            --primary-color: #430065;
+            --secondary-color: #5e008d;
+            --bg-color: #f9fbfd;
+            --text-color: #333;
+            --card-bg: #ffffff;
+          }
+          body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+          }
+          header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+          }
+          header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: center;
+          }
+          main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+          }
+          section {
+            background-color: var(--card-bg);
+            border-radius: 0px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary-color);
+          }
+          h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+          }
+          h3 {
+            color: var(--secondary-color);
+          }
+          p {
+            margin-bottom: 1rem;
+            text-align: justify;
+          }
+          ul {
+            padding-left: 1.5rem;
+          }
+          li {
+            margin-bottom: 0.5rem;
+          }
+          .highlight {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+          }
+          .titulo-figura {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0.5rem;
+          }
+          svg {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: white;
             border-radius: 8px;
-        }
-    
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Entornos de Desarrollo</h1>
-      <p>ELEMENTOS DEL DESARROLLO DEL SOFTWARE</p>
-      <p><small>Autor: Carlos Lobato Gómez</small></p>
-    </header>
+          }
+          .code {
+            background-color: #090505;
+            padding: 0.5rem;
+            border-radius: 8px;
+          }
+          code {
+            color: #ffffff;
+            padding: 0.5rem;
+            border-radius: 4px;
+          }
+        </style>
+      </head>
+      <body>
+        <header>
+          <h1>CIBERSEGURIDAD</h1>
+          <p>Protocolo HTTP</p>
+          <p><small>Autor: Carlos Lobato Gómez</small></p>
+        </header>
 
-<main>
-        <!-- SECCIÓN 1: PROTOCOLO HTTP -->
-        <section>
+        <main>
+          <!-- SECCIÓN 1: PROTOCOLO HTTP -->
+          <section>
             <h1>Protocolo HTTP</h1>
-            <p>El protocolo <strong>HTTP (Protocolo de Transferencia de Hipertexto)</strong> es la base de la comunicación en la World Wide Web. Funciona bajo un modelo cliente-servidor donde el navegador (cliente) hace una petición y el servidor web devuelve una respuesta.</p>
-            
-            <ul>
-                <li><span class="highlight">HTTP (Puerto 80):</span> Transmite toda la información en texto plano. Si un atacante intercepta la comunicación en cualquier punto de la red (un router comprometido, una red Wi-Fi pública), puede leer exactamente lo que el usuario está enviando o recibiendo. No hay confidencialidad ni integridad garantizada.</li>
-                <li><span class="highlight">HTTPS (Puerto 443):</span> Es la versión segura. Añade una capa criptográfica (SSL/TLS) entre HTTP y TCP. Antes de enviar cualquier dato, el cliente y el servidor negocian un túnel cifrado. Si alguien intercepta los paquetes, solo verá un bloque de datos incomprensible (Application Data) y no podrá leer contraseñas, cookies de sesión ni el contenido de la web.</li>
-            </ul>
-        </section>
+            <p>
+              El protocolo
+              <strong>HTTP (Protocolo de Transferencia de Hipertexto)</strong>
+              es la base de la comunicación en la World Wide Web. Funciona bajo
+              un modelo cliente-servidor donde el navegador (cliente) hace una
+              petición y el servidor web devuelve una respuesta.
+            </p>
 
-        <!-- SECCIÓN 2: MÉTODOS HTTP -->
-        <section>
+            <ul>
+              <li>
+                <span class="highlight">HTTP (Puerto 80):</span> Transmite toda
+                la información en texto plano. Si un atacante intercepta la
+                comunicación en cualquier punto de la red (un router
+                comprometido, una red Wi-Fi pública), puede leer exactamente lo
+                que el usuario está enviando o recibiendo. No hay
+                confidencialidad ni integridad garantizada.
+              </li>
+              <li>
+                <span class="highlight">HTTPS (Puerto 443):</span> Es la versión
+                segura. Añade una capa criptográfica (SSL/TLS) entre HTTP y TCP.
+                Antes de enviar cualquier dato, el cliente y el servidor
+                negocian un túnel cifrado. Si alguien intercepta los paquetes,
+                solo verá un bloque de datos incomprensible (Application Data) y
+                no podrá leer contraseñas, cookies de sesión ni el contenido de
+                la web.
+              </li>
+            </ul>
+          </section>
+
+          <!-- SECCIÓN 2: MÉTODOS HTTP -->
+          <section>
             <h2>Los Métodos HTTP principales</h2>
-            <p>¿Cómo viajan los datos desde el navegador al servidor? Los dos métodos fundamentales son:</p>
+            <p>
+              ¿Cómo viajan los datos desde el navegador al servidor? Los dos
+              métodos fundamentales son:
+            </p>
 
             <h3>1. Método GET (Petición de recursos)</h3>
-            <p>Se utiliza para solicitar información al servidor (ej. cargar una página web, una imagen).</p>
+            <p>
+              Se utiliza para solicitar información al servidor (ej. cargar una
+              página web, una imagen).
+            </p>
             <ul>
-                <li><strong>El problema de seguridad:</strong> Si enviamos datos en un GET (por ejemplo, un formulario de login mal programado), estos viajan visibles en la propia URL: <br>
-                <code>http://miservidor.com/login.php?usuario=admin&clave=12345</code></li>
-                <li>Incluso si usamos HTTPS, enviar credenciales por GET es una vulnerabilidad grave porque esa URL quedará registrada en el historial del navegador, en los logs del servidor web (ej. <code>/var/log/nginx/access.log</code>) y en proxies intermedios.</li>
+              <li>
+                <strong>El problema de seguridad:</strong> Si enviamos datos en
+                un GET (por ejemplo, un formulario de login mal programado),
+                estos viajan visibles en la propia URL: <br />
+                <div class="code">
+                  <code
+                    >http://miservidor.com/login.php?usuario=admin&clave=12345</code
+                  >
+                </div>
+              </li>
+              <li>
+                Incluso si usamos HTTPS, enviar credenciales por GET es una
+                vulnerabilidad grave porque esa URL quedará registrada en el
+                historial del navegador, en los logs del servidor web (ej.
+                <div class="code"><code>/var/log/nginx/access.log</code></div>
+                ) y en proxies intermedios.
+              </li>
             </ul>
 
             <h3>2. Método POST (Envío de datos)</h3>
-            <p>Se utiliza para enviar información sensible o extensa al servidor, como el envío de un formulario de inicio de sesión o la subida de un archivo.</p>
+            <p>
+              Se utiliza para enviar información sensible o extensa al servidor,
+              como el envío de un formulario de inicio de sesión o la subida de
+              un archivo.
+            </p>
             <ul>
-                <li><strong>La ventaja:</strong> Los datos no van en la URL, sino ocultos en el cuerpo (body) del mensaje HTTP.</li>
-                <li><strong>El peligro real:</strong> Que no se vean en la URL de la pantalla no significa que estén cifrados. Si se usa POST sobre HTTP puro, el cuerpo del mensaje viaja en texto claro por la red de la clase.</li>
+              <li>
+                <strong>La ventaja:</strong> Los datos no van en la URL, sino
+                ocultos en el cuerpo (body) del mensaje HTTP.
+              </li>
+              <li>
+                <strong>El peligro real:</strong> Que no se vean en la URL de la
+                pantalla no significa que estén cifrados. Si se usa POST sobre
+                HTTP puro, el cuerpo del mensaje viaja en texto claro por la red
+                de la clase.
+              </li>
             </ul>
+            <p>
+              En resumen, para proteger la información sensible, siempre se debe
+              usar HTTPS y preferir el método POST para enviar datos
+              confidenciales.
+            </p>
+          </section>
+          <section>
+            <h2>Introducción a Wireshark para la práctica</h2>
+            <p>
+              Wireshark es un analizador de protocolos de red que permite
+              capturar y analizar el tráfico de red en tiempo real. A este tipo
+              de programa se les llama sniffers.
+            </p>
+            <p>
+              Para esta demostración el objetivo es que actuemos como
+              "atacantes" pasivos dentro de la propia red local (interfaz de red
+              lo), capturando el tráfico mientras alguien se loguea en una web.
+            </p>
+            <h3>Preparación del escenario</h3>
+            <p>
+              Tener una web de prueba muy sencilla con un formulario de login
+              configurado para usar el método POST. Estará disponible en HTTP
+              (puerto 80) y HTTPS (puerto 443). Para ello, vamos a instalar el
+              servicio NGINX, que nos permite levantar servidores de manera
+              fácil e intuitiva. En las máquinas virtuales con Kali Linux (o
+              cualquier distribución basada en Debian), la instalación es
+              directa desde los repositorios oficiales:
+            </p>
+            <div class="code">
+              <pre><code>
+    sudo apt update 
+    sudo apt install nginx 
+    sudo systemctl start nginx 
+    sudo systemctl enable nginx
+              </code></pre></div>
+            <p>Modificamos la configuración del servidor, para ello:</p>
+            <div class="code">
+              <code> sudo nano /var/www/html/index.html </code>
+            </div>
+            <p>Y vamos a pegar este contenido:</p>
+            <div class="code">
+              <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Laboratorio de Ciberseguridad&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Prueba de intercepción HTTP&lt;/h1&gt;
+        &lt;p&gt;Esta página se ha cargado mediante una petición GET.&lt;/p&gt;
+        
+        &lt;!-- Formulario preparado para la siguiente práctica --&gt;
+        &lt;h2&gt;Acceso al sistema&lt;/h2&gt;
+        &lt;form action="/login.php" method="POST"&gt;
+            Usuario: &lt;input type="text" name="usuario"&gt;&lt;br&gt;
+            Clave: &lt;input type="password" name="clave"&gt;&lt;br&gt;
+            &lt;input type="submit" value="Entrar"&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+            </div>
+
+            <p>
+              A continuación, modificamos los archivos de configuración de Nginx
+              para cargar y actualizar el servidor. Para ello tenemos que
+              acceder al directorio donde se guardan estos archivos:
+            </p>
+            <div class="code">
+              <code> cd /etc/nginx/sites-available/ </code>
+            </div>
+            <p>Creamos un archivo de configuración:</p>
+            <div class="code">
+              <code> sudo nano configuracion_practica_http </code>
+            </div>
+            <p>Y pegamos el siguiente contenido:</p>
+            <pre><div class="code"><code>
+    server {
+        listen 80;
+        server_name localhost;
+
+        root /var/www/html;
+        index index.html;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+    }   
+</code></div>
+</pre>
+            <p>
+              Ahora, tenemos que actualizar el enlace simbólico que indica qué
+              archivo de configuración estará habilitado:
+            </p>
+
+            <div class="code">
+              <code>
+                cd /etc/nginx/sites-enabled/ sudo ln -s
+                /etc/nginx/sites-available/configuracion_practica_http .
+              </code>
+            </div>
+
+            <p>
+              Ahora recargamos el servidor para que coja la nueva configuración:
+            </p>
+            <div class="code"><code> sudo systemctl reload nginx </code></div>
+            <p>
+              Para confirmar que el servidor web está escuchando correctamente
+              en el puerto 80 (HTTP), se puede comprobar con:
+            </p>
+            <div class="code">
+              <code> sudo netstat -tulnp | grep :80 </code>
+            </div>
+
+            <p>
+              La salida mostrará el proceso de Nginx escuchando en el puerto 80.
+            </p>
+          </section>
+          <section>
+            <h2>Capturando la petición GET</h2>
+            <p>
+              Con el servidor web funcionando, pasamos a Wireshark para analizar
+              cómo el navegador solicita esa página al servidor.
+            </p>
+            <ol>
+              <li>
+                Iniciar la captura: Abre Wireshark y selecciona la interfaz de
+                red que vayas a usar. Si el cliente y el servidor son la misma
+                máquina virtual, selecciona la interfaz de bucle local (lo). Si
+                están conectadas en red, selecciona la interfaz correspondiente
+                (suele ser eth0).
+              </li>
+              <li>
+                Aplicar el filtro: En la barra de búsqueda superior, introduce
+                este filtro para descartar el ruido de fondo y presiona Enter:
+                http.request.method == "GET"
+              </li>
+              <li>
+                Generar el tráfico: Abre un navegador web y entra en la IP del
+                servidor web (por ejemplo, http://localhost o
+                [http://192.168.](http://192.168.)X.X).
+              </li>
+              <li>
+                Inspeccionar el paquete HTTP: En Wireshark aparecerá una línea
+                correspondiente a la petición. Al seleccionarla y desplegar la
+                sección Hypertext Transfer Protocol en el panel inferior, los
+                alumnos podrán observar campos clave:
+              </li>
+              <ul>
+                <li><strong>Request Method:</strong> GET</li>
+                <li><strong>Request URI:</strong> /index.html</li>
+                <li><strong>Host:</strong> localhost</li>
+                <li>
+                  <strong>User-Agent:</strong> Información sobre el navegador y
+                  sistema operativo del cliente.
+                </li>
+              </ul>
+            </ol>
+            <p>
+              Si a continuación borras el filtro de la barra superior y buscas
+              justo debajo el paquete de respuesta del servidor web (HTTP/1.1
+              200 OK), podrás seleccionar ese paquete, desplegar la sección
+              Line-based text data y ver el código HTML exacto de la página web
+              transmitido en texto completamente claro a través de la red.
+            </p>
+          </section>
+          <section>
+            <h2>Capturando la petición POST</h2>
+            <p>
+              Ahora vamos a capturar la petición POST que se genera al enviar el
+              formulario de login.
+            </p>
+            <p>
+              El formulario que creamos en el archivo index.html ya está
+              configurado con method="POST" y apunta a un archivo ficticio
+              llamado /login.php. Aunque ese archivo PHP no exista en nuestro
+              servidor Nginx (el navegador mostrará un error 404 "Not Found"),
+              no importa: el navegador enviará los datos igualmente, y eso es
+              exactamente lo que queremos capturar en la red.
+            </p>
+            <h3>1. Preparar la captura y el filtro:</h3>
+            <p>
+              En Wireshark, asegúrate de estar capturando en la interfaz
+              correcta (lo si todo se hace en la misma máquina local, o
+              eth0/enp0s3 si accedes desde otra máquina virtual). En la barra de
+              filtros superior, introduce: http.request.method == "POST" Pulsa
+              Enter. La pantalla debería quedarse en blanco, esperando el
+              tráfico.
+            </p>
+            <h3>2. Enviar las credenciales:</h3>
+            <p>
+              Abre un navegador web y entra en la IP del servidor web (por
+              ejemplo, http://localhost o http://192.168.X.X). Rellena el
+              formulario de login con cualquier usuario y contraseña (por
+              ejemplo, usuario: admin, clave: 123456) y pulsa "Entrar".
+            </p>
+            <p>
+              El navegador mostrará un error 404 porque login.php no existe,
+              pero la petición ya ha viajado por la red.
+            </p>
+
+            <h3>3. Analizar la petición capturada:</h3>
+            <p>
+              Vuelve a Wireshark. Debería haber aparecido una única línea
+              correspondiente a la petición HTTP POST. Haz clic sobre ella para
+              seleccionarla. Fíjate que en la columna "Info", Wireshark ya te da
+              una pista indicando que es un POST y que contiene datos tipo
+              application/x-www-form-urlencoded.
+            </p>
+            <h3>4. Visualizar los datos del paquete y extraer la clave:</h3>
+            <p>
+              EN el panel central verás los detalles de la petición POST,
+              incluyendo los datos enviados en el cuerpo de la solicitud:
+            </p>
+            <ol>
+              <li>
+                <b
+                  >Frame / Ethernet / Internet Protocol / Transmission Control
+                  Protocol:</b
+                >
+                Estas son las capas inferiores (físico, red, transporte). Aquí
+                pueden ver las IPs y puertos de origen y destino.
+              </li>
+              <li>
+                <b>Hypertext Transfer Protocol:</b> Al desplegar esta sección,
+                verán las cabeceras HTTP. A diferencia del método GET, no verán
+                las credenciales en el Request URI.
+              </li>
+              <li>
+                <b>HTML Form URL Encoded: application/x-www-form-urlencoded:</b>
+                Despliega esta última sección. Aquí aparecerán los campos
+                exactos del formulario ("usuario"=admin y "clave"=123456).
+              </li>
+            </ol>
+            <p>
+              Esta práctica demuestra empíricamente que utilizar el método POST
+              no añade ninguna capa de seguridad criptográfica. Simplemente saca
+              los parámetros de la URL y los mete en el cuerpo del mensaje, pero
+              viajan en texto plano. Cualquiera con acceso a la red (un atacante
+              haciendo un Man-in-the-Middle o alguien conectado a la misma red
+              Wi-Fi abierta) puede robar la sesión.
+            </p>
+          </section>
+          <section>
+            <h3>Uso de HTTPS para cifrar la información</h3>
+            <p>
+              HTTPS (HTTP sobre SSL/TLS) proporciona una capa adicional de seguridad al cifrar la comunicación entre el cliente y el servidor. Esto impide que los atacantes intercepten y lean los datos transmitidos, incluso si tienen acceso a la red. Por lo que vamos a crear un certificado autofirmado (ideal para entornos de laboratorio) y a configurar Nginx para que escuche en el puerto 443 (HTTPS).
+            </p>
+            <h3>1. Generar un certificado SSL autofirmado</h3>
+            <p>Recordemos que SSL es el protocolo de seguridad que se utiliza para cifrar la comunicación entre el cliente y el servidor. En la terminal de Kali (o Debian) ejecuta este comando de OpenSSL para generar una clave privada RSA de 2048 bits y un certificado válido por un año:
+            </p>
+            <div class="code">
+              <pre><code>
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 
+    -keyout /etc/ssl/private/nginx-selfsigned.key 
+    -out /etc/ssl/certs/nginx-selfsigned.crt
+              </code></pre>
+            </div>
+            <p>El sistema hará varias preguntas sobre la información del certificado. Puedes dejar los valores por defecto o ingresar la información correspondiente.</p>
+            <h3>2. Configurar Nginx para usar HTTPS</h3>
+            <p>Una vez generado el certificado, necesitamos configurar Nginx para que utilice HTTPS. Abre el archivo de configuración de Nginx:</p>
+            <div class="code">
+              <pre><code>
+    sudo nano /etc/nginx/sites-available/default
+              </code></pre>
+            </div>
+            <p>Busca el bloque server { ... } y añade (o descomenta) las siguientes líneas para habilitar el puerto 443 y apuntar a los certificados que acabamos de crear:
+
+            </p>
+            <div class="code">
+              <pre><code>
+    server {
+        listen 80 default_server;
+        listen 443 ssl default_server; # Habilitar HTTPS
+        
+        ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+        ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        
+        # ... resto de la configuración ...
+    }
+              </code></pre>
+            </div>
+            <p>Guarda los cambios y recarga Nginx para aplicar la nueva configuración:</p>
+            <div class="code">
+              <pre><code>
+    sudo systemctl reload nginx
+              </code></pre>
+            </div>
+            <h3>3. Probar la conexión HTTPS y capturar el código en Wireshark</h3>
+            <p>Abre un navegador web y entra en la dirección https://localhost o https://[tu-ip-local]. Es posible que el navegador muestre una advertencia de seguridad debido a que el certificado es autofirmado. Acepta la advertencia para continuar y verás la página web cargada de manera segura.</p>
+            <p>Ahora, si realizas la misma práctica de captura de tráfico con Wireshark, verás que los datos transmitidos están cifrados.  
+            Para capturar el tráfico HTTPS en Wireshark, sigue los mismos pasos que antes, pero esta vez asegúrate de filtrar por el puerto 443 o por el protocolo TLS. Verás que los paquetes capturados no muestran la información del formulario en texto claro, sino que están cifrados.</p>
+          <h2>4. Enviar el formulario de manera segura</h2>
+          <p>Rellena de nuevo el formulario con el usuario admin y la clave 123456, y dale a "Entrar". Si vamos a wireshark veremos lo siguiente:
+
+          </p>
+          <ol>
+            <li>Ya no hay HTTP explícito: El filtro http.request.method == "POST" no devolverá ningún resultado. Para el "atacante" en la red, no hay ninguna petición web, solo tráfico TCP en el puerto 443.</li>
+            <li>El Handshake SSL/TLS: Si miran los primeros paquetes de la conexión (tls.handshake), verán el Client Hello y el Server Hello intercambiando los algoritmos criptográficos. En el paquete Certificate, podrán ver en claro los datos falsos que introdujeron al ejecutar el comando openssl.</li>
+            <li>Application Data: El paquete que realmente contiene el POST (el envío del formulario) aparecerá etiquetado en Wireshark como "Application Data".</li>
+            <li>Imposible leer la clave: Al desplegar los detalles de ese paquete, la sección "HTML Form URL Encoded" ha desaparecido. En su lugar, solo verán la capa Transport Layer Security y un campo llamado Encrypted Application Data lleno de bytes aleatorios e ilegibles.</li>
+        </ol>
         </section>
-    </main>
-</body>
+        <section>
+            <h2>¿Se puede hackear actualmente HTTPS?</h2>
+            <p>En la actualidad, HTTPS es considerado seguro y confiable para la mayoría de las aplicaciones web. Sin embargo, existen vulnerabilidades y ataques que pueden comprometer la seguridad si no se implementa correctamente:</p>
+          
+                <h3>Vulnerabilidades en versiones antiguas de SSL/TLS</h3>
+                <p>Por defecto, Nginx y los navegadores actuales negocian TLS 1.3 o TLS 1.2 usando intercambio de claves efímeras (Diffie-Hellman, ECDHE). En este escenario, la clave privada RSA que hemos generado solo se usa para autenticar la identidad del servidor, no para cifrar los datos. Como la clave simétrica de sesión se genera al vuelo y se destruye al terminar, introducir la clave RSA en Wireshark no servirá de nada.</p>
+                <p>Es importante asegurarse de que el servidor web esté configurado para usar versiones modernas y seguras de TLS (como TLS 1.2 o TLS 1.3) y deshabilitar versiones obsoletas como SSL 2.0, SSL 3.0 y TLS 1.0.</p>
+                <h3>El método SSLKEYLOGFILE</h3>
+                <p>
+                    El método SSLKEYLOGFILE (sí, se llama así realmente) es el estándar actual en ciberseguridad para inspeccionar tráfico TLS moderno. En lugar de atacar el cifrado asimétrico (que PFS hace inútil), este método extrae las claves simétricas efímeras directamente de la memoria del navegador en el momento en que se generan, antes de que se destruyan.
+                    Es el mismo principio que utilizan los analistas de un SOC (Security Operations Center) para destripar malware de red, o la técnica que usa un troyano bancario instalado en el sistema operativo para robar datos antes de que la capa de red los cifre.
+
+                </p>
+                <p>Vamos a explorar algunas de estas vulnerabilidades en detalle. Para ello, vamos a Wireshark -> Edit -> Preferences -> Protocols -> TLS (o SSL en versiones de Wireshark anteriores a la 3.0) </p>
+                <p>Busca el campo llamado (Pre)-Master-Secret log filename. Introduce la ruta absoluta de un archivo de texto donde se volcarán las claves. Por ejemplo: /home/usuario/ssl_keys.log</p>
+                <p>Verificación: A partir de este momento, Wireshark intentará leer ese archivo en tiempo real para aplicar cualquier clave de sesión que coincida con el tráfico capturado.</p>
+                <p>Abre una nueva terminal. Es vital exportar la variable de entorno y lanzar el navegador desde esa terminal. Escribe:</p>
+                <div class="code">
+                    <pre><code>
+    export SSLKEYLOGFILE=/home/usuario/ssl_keys.log
+                    </code></pre>
+                </div>
+                <p>Ahora lanza el navegador desde esa misma terminal. Por ejemplo, si estás usando Firefox, escribe:</p>
+                <div class="code">
+                    <pre><code>    firefox
+                    </code></pre>
+                </div>
+    
+                <p>Ahora, cada vez que el navegador establezca una conexión TLS, volcará la clave de sesión en el archivo ssl_keys.log. Wireshark podrá leer este archivo y descifrar el tráfico HTTPS capturado.</p>
+<p>La variable SSLKEYLOGFILE es local. Si ejecutas el comando export en la terminal, pero luego abres Firefox haciendo clic en su icono del menú de aplicaciones de Kali, el navegador se abrirá en un entorno diferente, no recibirá la variable y no guardará las claves de cifrado. Tiene que nacer de esa misma ventana.
+
+Para comprobar que lo has hecho bien, visita https://localhost en ese navegador que se acaba de abrir, vuelve a la terminal y ejecuta:
+</p> 
+<div class="code">
+<pre><code>
+    cat /home/usuario/ssl_keys.log 
+</code></pre>
+</div>
+</p>Si ves un bloque de texto que empieza por palabras como CLIENT_RANDOM, el navegador está volcando la memoria correctamente.</p>
+
+<p>Esta técnica demuestra un concepto crucial en ciberseguridad: el cifrado de red no sirve de nada si el extremo (el endpoint) está comprometido.
+
+Para que un atacante pueda usar esta técnica exacta (o una variante), ya debe tener algún nivel de acceso o ejecución de código en la máquina de la víctima. No es un ataque que se pueda hacer "desde fuera" solo escuchando el Wi-Fi.
+
+Aquí tienes los casos reales donde este principio se aplica, tanto desde la perspectiva del atacante (Red Team/Cibercrimen) como del defensor (Blue Team):</p>
+<ul>
+    <li>1. Post-Explotación (El atacante ya está dentro)</li>
+    <p>Si un atacante logra entrar en un equipo (por ejemplo, mediante un phishing con un PDF malicioso que le da una consola oculta o reverse shell), puede modificar silenciosamente el entorno del usuario. Podría inyectar la variable SSLKEYLOGFILE en el perfil del usuario (como en .bashrc en Linux o en las variables de entorno de Windows) y enviar ese archivo de texto periódicamente a su propio servidor.
+
+El beneficio para el atacante: Evita hacer ruido en la red. El firewall y el IDS/IPS de la empresa verán tráfico HTTPS legítimo saliendo del equipo, pero el atacante tendrá las claves para descifrarlo en su casa.</p>
+    <li>2. Malware bancario (El atacante ya tiene un troyano en la máquina de la víctima)</li>
+    <p>El cibercrimen moderno no intenta romper la criptografía de TLS 1.3 interceptando el router, porque es matemáticamente inviable. En su lugar, usan malware (como el famoso Emotet o Trickbot) que se inyecta directamente en la memoria del navegador (Chrome, Firefox).
+
+En lugar de usar la variable de entorno, el malware hace API Hooking: intercepta las funciones internas del navegador que manejan el texto en claro justo antes de que el navegador aplique el cifrado SSL/TLS. Para el usuario, el candado verde está puesto, pero el malware ya ha robado la contraseña.</p>
+    <li>3. SOC (El analista de seguridad ya tiene acceso a la memoria de los endpoints para inspeccionar tráfico cifrado)</li>
+    <p>
+        Este es el caso de uso profesional más habitual para esta técnica exacta. Cuando un analista de un SOC (Centro de Operaciones de Seguridad) captura un malware nuevo, lo encierra en una máquina virtual aislada (Sandbox) para ver qué hace.
+
+El malware moderno se comunica con sus creadores (servidores C2) usando HTTPS para ocultar las órdenes que recibe. El analista fuerza a la máquina virtual a volcar las claves de memoria para poder descifrar el tráfico en Wireshark y descubrir qué está intentando robar el virus o a qué IPs se está conectando.
+    </p>
+    <li>4. Inspección Corporativa (DLP y Antivirus)</li>
+    <p>En muchas empresas, los administradores de sistemas instalan agentes en los ordenadores de los empleados. Estos agentes utilizan técnicas similares para extraer las claves simétricas o instalan certificados raíz corporativos.
+
+El objetivo es que el firewall de la empresa pueda abrir y leer el tráfico HTTPS de los empleados en tiempo real para evitar la fuga de datos (DLP - Data Loss Prevention) o bloquear la descarga de virus ocultos dentro de conexiones seguras.</p>
+</ul>
+
+
+
+        </section>
+        </main>
+      </body>
+    </html>
+  </body>
 </html>

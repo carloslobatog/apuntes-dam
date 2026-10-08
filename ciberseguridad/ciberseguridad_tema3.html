@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-width=1.0" />
+        <title>Apuntes de Entornos de Desarrollo</title>
+        <style>
+          :root {
+            --primary-color: #430065;
+            --secondary-color: #5e008d;
+            --bg-color: #f9fbfd;
+            --text-color: #333;
+            --card-bg: #ffffff;
+          }
+          body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+          }
+          header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+          }
+          header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: center;
+          }
+          main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+          }
+          section {
+            background-color: var(--card-bg);
+            border-radius: 0px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary-color);
+          }
+          h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+          }
+          h3 {
+            color: var(--secondary-color);
+          }
+          p {
+            margin-bottom: 1rem;
+            text-align: justify;
+          }
+          ul {
+            padding-left: 1.5rem;
+          }
+          li {
+            margin-bottom: 0.5rem;
+          }
+          .highlight {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+          }
+          .titulo-figura {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0.5rem;
+          }
+          svg {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            width: 100%;
+          }
+          .svg-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            width: 100%;
+            max-width: 900px;
+          }
+          .code {
+            background-color: #090505;
+            padding: 0.5rem;
+            border-radius: 8px;
+          }
+          code {
+            color: #ffffff;
+            padding: 0.5rem;
+            border-radius: 4px;
+          }
+          .box {
+            fill: #8e44ad; /* Color morado para los nodos */
+            rx: 18px; /* Bordes redondeados */
+            ry: 18px;
+          }
+          .line {
+            stroke: #8e44ad; /* Color morado para las líneas */
+            stroke-width: 4px;
+            stroke-linecap: round;
+          }
+          .text {
+            fill: #ffffff; /* Texto en blanco */
+            text-anchor: middle;
+            dominant-baseline: middle;
+          }
+          .text-root {
+            font-size: 26px;
+            font-weight: 500;
+          }
+          .text-tld {
+            font-size: 22px;
+            font-weight: 500;
+          }
+          .text-sld {
+            font-size: 16px;
+            font-weight: 500;
+          }
+          .text-sub {
+            font-size: 14px;
+            font-weight: 500;
+          }
+          /* Estilos de texto */
+        .title { font-size: 20px; font-weight: bold; fill: #000; text-anchor: middle; }
+        .box-text { font-size: 11px; fill: #000; }
+        .box-text-bold { font-weight: bold; }
+        .mono-text { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: #000; }
+        .label-text { font-size: 11px; font-weight: bold; fill: #000; }
+        .title-text-white { font-size: 12px; font-weight: bold; fill: #ffffff; text-anchor: middle; }
+        
+        /* Líneas y flechas */
+        .dns-arrow { stroke: #59a869; stroke-width: 1.5; stroke-dasharray: 6,4; fill: none; }
+        .solid-blue { stroke: #1e588a; stroke-width: 2.5; fill: none; }
+        .solid-orange { stroke: #ff9900; stroke-width: 2; fill: none; }
+        
+        /* Elementos geométricos */
+        .blue-oval { fill: #1e588a; rx: 15; ry: 15; }
+        .orange-oval { fill: #ff9900; rx: 12; ry: 12; }
+        .green-box { fill: #f8d62a; stroke: #333; stroke-width: 1; rx: 12; ry: 12; }
+        .light-blue-doc { fill: #dcdfdf; stroke: #333; stroke-width: 1; }
+        .white-box { fill: #ffffff; stroke: #333; stroke-width: 1; rx: 15; ry: 15; }
+        </style>
+      </head>
+      <body>
+        <header>
+          <h1>DNS</h1>
+          <p>Sistema de Nombres de Dominio</p>
+          <p><small>Autor: Carlos Lobato Gómez</small></p>
+        </header>
+
+        <main>
+          <!-- SECCIÓN 1: PROTOCOLO HTTP -->
+          <section>
+            <h1>Sistema DNS</h1>
+            <p>
+              El Sistema de Nombres de Dominio (DNS) es la infraestructura que
+              permite a Internet funcionar de manera intuitiva para los humanos.
+              Esencialmente, actúa como la guía telefónica de Internet,
+              traduciendo los nombres de dominio fáciles de recordar (como
+              google.com) a las direcciones IP numéricas (como 142.250.67.14)
+              que las máquinas utilizan para comunicarse.
+            </p>
+            <h3>Nombres de Dominio</h3>
+            <p>
+              Un nombre de dominio es una dirección legible por humanos que se
+              utiliza para identificar un sitio web en Internet. Está compuesto
+              por varias partes, separadas por puntos, y cada parte tiene un
+              significado específico. Por ejemplo, en el nombre de dominio
+              "www.ejemplo.com", "www" es un subdominio, "ejemplo" es el nombre
+              del dominio, y "com" es el dominio de nivel superior (TLD).
+            </p>
+            <p>
+              Los nombres de dominio pueden estar formados por una o más cadenas
+              de caracteres separadas por puntos y no se distingue entre
+              mayúsculas y minúsculas. Por ejemplo, www.google.es que
+              WWW.GooGle.ES
+            </p>
+
+            <h3>Dominio raíz</h3>
+            <p>
+              Los dominios raíz son los niveles más altos en la jerarquía de
+              nombres de dominio. El único dominio raíz es ".", que representa
+              la raíz del árbol de nombres de dominio. En la práctica, los
+              dominios raíz no se utilizan directamente, sino que se utilizan
+              los dominios de nivel superior (TLD) como ".com", ".org", ".net",
+              etc.
+            </p>
+
+            <div class="svg-container">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500">
+                <!-- Fondo blanco explícito en el SVG -->
+                <rect width="100%" height="100%" fill="#ffffff" />
+
+                <!-- LÍNEAS DE CONEXIÓN (Dibujadas antes para quedar detrás de los nodos) -->
+
+                <!-- Nivel 1 a Nivel 2 -->
+                <line x1="640" y1="90" x2="220" y2="130" class="line" />
+                <!-- Root a .ORG -->
+                <line x1="640" y1="90" x2="640" y2="130" class="line" />
+                <!-- Root a .com -->
+                <line x1="640" y1="90" x2="1060" y2="130" class="line" />
+                <!-- Root a .net -->
+
+                <!-- Nivel 2 a Nivel 3 -->
+                <line x1="220" y1="190" x2="220" y2="240" class="line" />
+                <!-- .ORG a wikipedia.org -->
+                <line x1="640" y1="190" x2="500" y2="240" class="line" />
+                <!-- .com a google.com -->
+                <line x1="640" y1="190" x2="780" y2="240" class="line" />
+                <!-- .com a amazon.com -->
+                <line x1="1060" y1="190" x2="1060" y2="240" class="line" />
+                <!-- .net a Speedtest.net -->
+
+                <!-- Nivel 3 a Nivel 4 -->
+                <!-- wikipedia.org -->
+                <line x1="220" y1="300" x2="150" y2="360" class="line" />
+                <line x1="220" y1="300" x2="290" y2="360" class="line" />
+
+                <!-- google.com -->
+                <line x1="500" y1="300" x2="430" y2="360" class="line" />
+                <line x1="500" y1="300" x2="570" y2="360" class="line" />
+
+                <!-- amazon.com -->
+                <line x1="780" y1="300" x2="710" y2="360" class="line" />
+                <line x1="780" y1="300" x2="850" y2="360" class="line" />
+
+                <!-- Speedtest.net -->
+                <line x1="1060" y1="300" x2="990" y2="360" class="line" />
+                <line x1="1060" y1="300" x2="1130" y2="360" class="line" />
+
+                <!-- NODOS Y TEXTOS -->
+
+                <!-- Nivel 1: Root -->
+                <rect x="570" y="30" width="140" height="60" class="box" />
+                <text x="640" y="60" class="text text-root">Root</text>
+
+                <!-- Nivel 2: TLDs -->
+                <rect x="150" y="130" width="140" height="60" class="box" />
+                <text x="220" y="160" class="text text-tld">.ORG</text>
+
+                <rect x="570" y="130" width="140" height="60" class="box" />
+                <text x="640" y="160" class="text text-tld">.com</text>
+
+                <rect x="990" y="130" width="140" height="60" class="box" />
+                <text x="1060" y="160" class="text text-tld">.net</text>
+
+                <!-- Nivel 3: SLDs -->
+                <rect x="145" y="240" width="150" height="60" class="box" />
+                <text x="220" y="270" class="text text-sld">wikipedia.org</text>
+
+                <rect x="425" y="240" width="150" height="60" class="box" />
+                <text x="500" y="270" class="text text-sld">google.com</text>
+
+                <rect x="705" y="240" width="150" height="60" class="box" />
+                <text x="780" y="270" class="text text-sld">amazon.com</text>
+
+                <rect x="985" y="240" width="150" height="60" class="box" />
+                <text x="1060" y="270" class="text text-sld">
+                  Speedtest.net
+                </text>
+
+                <!-- Nivel 4: Subdominios -->
+                <!-- Wikipedia subs -->
+                <rect x="85" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="150" y="382">en.</tspan>
+                  <tspan x="150" y="400">wikipedia</tspan>
+                  <tspan x="150" y="418">.org</tspan>
+                </text>
+
+                <rect x="225" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="290" y="382">as.</tspan>
+                  <tspan x="290" y="400">wikipedia</tspan>
+                  <tspan x="290" y="418">.org</tspan>
+                </text>
+
+                <!-- Google subs -->
+                <rect x="365" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="430" y="382">mail.</tspan>
+                  <tspan x="430" y="400">google</tspan>
+                  <tspan x="430" y="418">.com</tspan>
+                </text>
+
+                <rect x="505" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="570" y="382">maps.</tspan>
+                  <tspan x="570" y="400">google</tspan>
+                  <tspan x="570" y="418">.com</tspan>
+                </text>
+
+                <!-- Amazon subs -->
+                <rect x="645" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="710" y="382">smile.</tspan>
+                  <tspan x="710" y="400">amazon</tspan>
+                  <tspan x="710" y="418">.com</tspan>
+                </text>
+
+                <rect x="785" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="850" y="382">aws.</tspan>
+                  <tspan x="850" y="400">amazon</tspan>
+                  <tspan x="850" y="418">.com</tspan>
+                </text>
+
+                <!-- Speedtest subs -->
+                <rect x="925" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="990" y="382">www.</tspan>
+                  <tspan x="990" y="400">Speedtest</tspan>
+                  <tspan x="990" y="418">.net</tspan>
+                </text>
+
+                <rect x="1065" y="360" width="130" height="80" class="box" />
+                <text class="text text-sub">
+                  <tspan x="1130" y="382">beta.</tspan>
+                  <tspan x="1130" y="400">Speedtest</tspan>
+                  <tspan x="1130" y="418">.net</tspan>
+                </text>
+              </svg>
+            </div>
+
+            <p>
+              Un dominio se lee de derecha a izquierda, empezando por el punto
+              ., aunque en la práctica lo hacemos de izquierda a derecha. El
+              punto inicial, generalmente se omite ya que los programas lo
+              añaden por defecto y es meramente formal, pero en ocasiones, será
+              necesario que indiquemos el nombre de dominio completo incluyendo
+              el dominio raíz, es lo que se conoce como nombres de dominio
+              completos (Fully Qualified Domain Names, FQDN).
+            </p>
+
+            <p>
+              Durante una consulta DNS sin caché, cada vez que un usuario
+              introduce una dirección web en su navegador, esta acción
+              desencadena una búsqueda DNS, y todas las búsquedas DNS comienzan
+              en la zona raíz Una vez que la búsqueda llega a la zona raíz, la
+              búsqueda bajará en la jerarquía del sistema DNS, alcanzando
+              primero los servidores de TLD, luego los servidores para dominios
+              específicos (y posiblemente los subdominios), hasta que acabe
+              llegando al servidor de nombres autoritativo para el dominio
+              correcto, que contiene la dirección IP numérica del sitio web que
+              se está buscando. Esta dirección IP se devuelve entonces al
+              cliente. Es interesante que, a pesar del número de pasos
+              necesarios, este proceso puede ocurrir muy rápido. Los servidores
+              raíz son una parte fundamental de la infraestructura de Internet;
+              sin estos no funcionarían ni los navegadores web ni muchas otras
+              herramientas de Internet. Hay 13 direcciones IP diferentes que
+              sirven a la zona raíz de DNS, y existen cientos de servidores raíz
+              redundantes en todo el mundo para gestionar las solicitudes a la
+              zona raíz.
+            </p>
+
+            <h4>El mito de las 13 direcciones raíz.</h4>
+            <p>
+              Es un mito común que solo hay 13 servidores raíz de DNS en todo el
+              mundo. En realidad, hay 13 direcciones IP diferentes que
+              representan a los servidores raíz, pero cada una de estas
+              direcciones IP puede estar respaldada por múltiples servidores
+              físicos distribuidos globalmente. Esto significa que, aunque solo
+              haya 13 direcciones IP, hay muchos más servidores raíz en
+              funcionamiento para garantizar la redundancia y la disponibilidad.
+              El número 13 no fue un capricho administrativo, sino una
+              limitación matemática. En los inicios del DNS, el tamaño máximo de
+              un paquete de datos UDP para garantizar que no se fragmentara en
+              la red era de 512 bytes. Tras acomodar la estructura básica del
+              protocolo, el espacio sobrante solo permitía listar exactamente 13
+              direcciones IPv4. Hoy en día, esas 13 direcciones IP actúan como
+              "máscaras". Cuando tu red hace una consulta a una de ellas, los
+              routers no te envían a una única máquina central, sino a la copia
+              física de ese servidor que geográficamente esté más cerca de ti.
+              Esto hace que el sistema sea increíblemente rápido y resistente a
+              ataques.
+            </p>
+            <p>
+              Hoy en día existen más de 1,700 instancias físicas de estos
+              servidores raíz repartidas por todo el planeta. Si alguna vez
+              tienes curiosidad, entidades como root-servers.org mantienen un
+              mapa en tiempo real con la ubicación exacta de cada uno de ellos.
+            </p>
+
+            <h2>Resource Records</h2>
+            <p>
+              Los registros de recursos (Resource Records, RR) son la unidad
+              básica de información en el sistema DNS. Cada registro de recursos
+              contiene información sobre un dominio específico y su
+              correspondiente dirección IP u otros datos relacionados. Los
+              registros de recursos se almacenan en los servidores DNS y se
+              utilizan para responder a las consultas de los clientes.
+            </p>
+            <p>
+              Cada RR es una línea de datos que contiene información sobre el
+              dominio, como su dirección IP, los servidores de correo, los
+              servidores autoritativos, etc. Existen varios tipos de registros
+              de recursos, cada uno con un propósito específico.
+            </p>
+            <p>En el contexto de DNS, un RR sigue una estructura básica:</p>
+            <div class="code" style="background-color:var(--secondary-color);color:#fff;text-align:center;">
+              <code>
+                <strong>Nombre</strong> <strong>TTL</strong>
+                <strong>Clase</strong> <strong>Tipo</strong>
+                <strong>Datos</strong>
+              </code>
+            </div>
+            <ul>
+              <li>
+                <strong>Nombre</strong>: El nombre del dominio al que se refiere
+                el registro.
+              </li>
+              <li>
+                <strong>TTL</strong>: El tiempo de vida del registro, indicando
+                cuánto tiempo debe ser cacheado.
+              </li>
+              <li>
+                <strong>Clase</strong>: La clase de red a la que pertenece el
+                registro (generalmente IN para Internet).
+              </li>
+              <li>
+                <strong>Tipo</strong>: El tipo de registro (A, AAAA, CNAME, MX,
+                etc.).
+              </li>
+              <li>
+                <strong>Datos</strong>: La información específica asociada al
+                tipo de registro.
+              </li>
+            </ul>
+            <p>Algunos de los tipos de registros más comunes incluyen:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; border: 1px solid var(--secondary-color); border-radius: 8px; text-align: center;">
+              <tr>
+                <th>Tipo RR</th>
+                <th>Descripción</th>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>Asocia un nombre de dominio con una dirección IPv4.</td>
+              </tr>
+              <tr>
+                <td>AAAA</td>
+                <td>Asocia un nombre de dominio con una dirección IPv6.</td>
+              </tr>
+              <tr>
+                <td>CNAME</td>
+                <td>Alias de un nombre de dominio a otro nombre de dominio.</td>
+              </tr>
+              <tr>
+                <td>MX</td>
+                <td>Especifica los servidores de correo para el dominio.</td>
+              </tr>
+              <tr>
+                <td>NS</td>
+                <td>
+                  Indica los servidores de nombres autoritativos para el
+                  dominio.
+                </td>
+              </tr>
+              <tr>
+                <td>TXT</td>
+                <td>
+                  Permite almacenar texto arbitrario, a menudo usado para
+                  verificación y políticas.
+                </td>
+              </tr>
+              <tr>
+                <td>SOA</td>
+                <td>
+                  Contiene información sobre el servidor de nombres autoritativo
+                  para el dominio.
+                </td>
+              </tr>
+            </table>
+            <p>Tendremos algunas herramientas para consultar registros DNS:</p>
+            <ul>
+              <li><strong>nslookup</strong>: Herramienta de línea de comandos para consultar registros DNS.</li>
+              <li><strong>dig</strong>: Herramienta más avanzada para realizar consultas DNS detalladas.</li>
+              <li><strong>host</strong>: Herramienta simple para obtener información de direcciones IP y registros DNS.</li>
+            </ul>
+
+          </section>
+          <section>
+            <h2>Consultas DNS</h2>
+            <p>
+              Una consulta DNS es el proceso mediante el cual un cliente (como
+              un navegador web) solicita información sobre un nombre de dominio
+              a un servidor DNS. Este proceso es esencial para traducir nombres
+              de dominio legibles por humanos en direcciones IP que las
+              computadoras pueden entender y utilizar para establecer
+              conexiones.
+            </p>
+            <p>Vamos a estudiar los diferentes tipos de consultas DNS y cómo se utilizan en la práctica. Para ello, tenemos que estudiar algunos conceptos clave:</p>
+            <ul>
+                <li><strong>Resolutor DNS (DNS Resolver):</strong> Es el cliente que realiza las consultas DNS y gestiona la resolución de nombres.</li>
+                <li><strong>Servidor DNS recursivo:</strong> Es el servidor que responde a las consultas DNS, proporcionando la información solicitada.</li>
+                <li><strong>Servidor Raíz (root server):</strong> Es el servidor DNS más alto en la jerarquía, que responde a las consultas sobre dominios de primer nivel. Es el punto de partida de la búsqueda.</li>
+                <li><strong>Servidor TLD (Top-Level-Domain): </strong> Es el servidor que gestiona los dominios de primer nivel (como .com, .org, .net).</li>
+                <li><strong>Servidor DNS autoritativo:</strong> Es el servidor que tiene la autoridad sobre un dominio específico y proporciona respuestas definitivas a las consultas. Es decir, devuelve la IP final.</li>
+
+            </ul>
+
+            <h3>Consultas recursivas e iterativas</h3>
+
+            <h4>Consulta recursiva</h4>
+            <p>Una consulta recursiva es aquella en la que el servidor DNS da una respuesta completa o exacta. Pueden darse tres tipos de respuesta:</p>
+            <ul>
+                <li>Positivas: se devuelve información sobre el dominio consultado</li>
+                <li>Negativas: no se puede resolver el nombre de dominio.</li>
+                <li>Error: se produce un fallo en la red.</li>
+¡            </ul>
+            <h4>Consulta iterativa</h4>
+            <p>Una consulta iterativa es aquella en la que el servidor DNS proporciona una respuesta parcial. Existen cuatro posibles respuestas: </p>
+            <ul>
+                <li>Positivas: se devuelve información sobre el dominio consultado</li>
+                <li>Negativas: no se puede resolver el nombre de dominio.</li>
+                <li>Referencia: el servidor DNS indica a otros servidores a los que se les puede sonsultar para</li>
+                <li>Error: se produce un fallo en la red.</li>
+¡            </ul>
+
+            <p>En el siguiente esquema se muestra un ejemplo de resolución DNS combinando los dos tipos de consultas.</p>
+
+
+            <div class="svg-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 850">
+            
+            <!-- Definiciones de marcadores (puntas de flecha) y formas reusables -->
+            <defs>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#59a869" />
+                </marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e588a" />
+                </marker>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff9900" />
+                </marker>
+                
+                <!-- Símbolo: Computadora Cliente -->
+                <g id="pc">
+                    <!-- Base 3D -->
+                    <polygon points="5,55 25,65 75,65 55,55" fill="#a0a0a0" stroke="#333" stroke-width="1"/>
+                    <rect x="25" y="45" width="20" height="10" fill="#d0d0d0" stroke="#333" stroke-width="1"/>
+                    <polygon points="0,55 10,60 80,60 70,55" fill="#e0e0e0" stroke="#333" stroke-width="1"/>
+                    <!-- Monitor -->
+                    <rect x="5" y="10" width="60" height="45" fill="#e0e0e0" stroke="#333" stroke-width="1"/>
+                    <rect x="10" y="15" width="50" height="35" fill="#ffffff" stroke="#333" stroke-width="1"/>
+                </g>
+
+                <!-- Símbolo: Servidor -->
+                <g id="server">
+                    <polygon points="0,90 20,110 70,110 50,90" fill="#a0a0a0" stroke="#333" stroke-width="1"/>
+                    <polygon points="50,0 70,20 70,110 50,90" fill="#d0d0d0" stroke="#333" stroke-width="1"/>
+                    <rect x="0" y="0" width="50" height="90" fill="#c0c0c0" stroke="#333" stroke-width="1"/>
+                    <!-- Bahías -->
+                    <rect x="5" y="10" width="40" height="15" fill="#e0e0e0" stroke="#666" stroke-width="1"/>
+                    <rect x="5" y="30" width="40" height="15" fill="#e0e0e0" stroke="#666" stroke-width="1"/>
+                    <rect x="5" y="50" width="40" height="15" fill="#e0e0e0" stroke="#666" stroke-width="1"/>
+                    <!-- Leds -->
+                    <rect x="35" y="75" width="5" height="5" fill="#ffff00"/>
+                    <rect x="42" y="75" width="5" height="5" fill="#4caf50"/>
+                </g>
+                
+                <!-- Forma: Documento Azul Wavy -->
+                <path id="blue-doc" class="light-blue-doc" d="M0,0 H270 V75 Q202.5,95 135,75 Q67.5,55 0,75 Z" />
+            </defs>
+
+            <!-- ================= LÍNEAS DE CONEXIÓN Y FLECHAS ================= -->
+            
+            <!-- Flechas sólidas azules (Consulta iterativa/recursiva) -->
+            <path d="M 230 250 L 230 330" class="solid-blue" marker-end="url(#arrow-blue)" />
+            <path d="M 450 140 L 400 280" class="solid-blue" marker-end="url(#arrow-blue)" />
+            <path d="M 475 140 L 475 350" class="solid-blue" marker-end="url(#arrow-blue)" />
+            <path d="M 500 140 L 590 470" class="solid-blue" marker-end="url(#arrow-blue)" />
+
+            <!-- Flechas naranjas (Referencia) -->
+            <path d="M 750 310 L 610 270" class="solid-orange" marker-end="url(#arrow-orange)" />
+            <path d="M 680 540 L 610 500" class="solid-orange" marker-end="url(#arrow-orange)" />
+
+            <!-- Flujo DNS (Líneas verdes punteadas) -->
+            <!-- 1: PC a Local -->
+            <path d="M 170 370 L 330 370" class="dns-arrow" marker-end="url(#arrow-green)" />
+            <!-- 8: Local a PC -->
+            <path d="M 330 400 L 170 400" class="dns-arrow" marker-end="url(#arrow-green)" />
+            
+            <!-- 2: Local a Raíz -->
+            <path d="M 390 320 L 590 140" class="dns-arrow" marker-end="url(#arrow-green)" />
+            <!-- 3: Raíz a Local -->
+            <path d="M 580 160 L 410 340" class="dns-arrow" marker-end="url(#arrow-green)" />
+            
+            <!-- 4: Local a TLD -->
+            <path d="M 420 370 L 600 370" class="dns-arrow" marker-end="url(#arrow-green)" />
+            <!-- 5: TLD a Local -->
+            <path d="M 600 390 L 420 390" class="dns-arrow" marker-end="url(#arrow-green)" />
+
+            <!-- 6: Local a Autorizado -->
+            <path d="M 410 420 L 590 600" class="dns-arrow" marker-end="url(#arrow-green)" />
+            <!-- 7: Autorizado a Local -->
+            <path d="M 580 620 L 390 440" class="dns-arrow" marker-end="url(#arrow-green)" />
+
+
+            <!-- ================= TEXTOS DE FLUJO (Junto a las flechas) ================= -->
+            
+            <text x="175" y="360" class="label-text">(1) ¿www.zeppelinux.es?</text>
+            <text x="175" y="420" class="label-text">(8) 91.199.120.62</text>
+            
+            <text x="310" y="240" class="label-text">(2) ¿www.zeppelinux.es?</text>
+            
+            <text x="490" y="250" class="label-text">(3) Pregunta a un servidor autorizado</text>
+            <text x="490" y="265" class="label-text">para "es." cuya IP es 195.81.201.11</text>
+            
+            <text x="440" y="360" class="label-text">(4) ¿www.zeppelinux.es?</text>
+            
+            <text x="440" y="430" class="label-text">(5) Pregunta a un servidor</text>
+            <text x="440" y="445" class="label-text">autorizado para "zeppelinux.es."</text>
+            <text x="440" y="460" class="label-text">cuya IP es 91.199.120.4</text>
+            
+            <text x="480" y="520" class="label-text">(6) ¿www.zeppelinux.es?</text>
+            <text x="410" y="585" class="label-text">(7) 91.199.120.62</text>
+
+
+            <!-- ================= CAJAS Y ETIQUETAS DE ACCIÓN ================= -->
+            
+            <!-- Etiqueta Cliente DNS -->
+            <rect x="90" y="280" width="120" height="35" class="white-box" />
+            <text x="150" y="295" class="label-text" text-anchor="middle">Cliente DNS</text>
+            <text x="150" y="310" class="label-text" text-anchor="middle">(Resolver)</text>
+
+            <!-- Óvalo Consulta recursiva -->
+            <rect x="180" y="200" width="100" height="40" class="blue-oval" />
+            <text x="230" y="217" class="title-text-white">Consulta</text>
+            <text x="230" y="232" class="title-text-white">recursiva</text>
+
+            <!-- Óvalo Consulta iterativas -->
+            <rect x="420" y="90" width="100" height="40" class="blue-oval" />
+            <text x="470" y="107" class="title-text-white">Consulta</text>
+            <text x="470" y="122" class="title-text-white">iterativas</text>
+
+            <!-- Óvalos Referencia -->
+            <rect x="750" y="300" width="85" height="25" class="orange-oval" />
+            <text x="792.5" y="317" class="label-text" text-anchor="middle">Referencia</text>
+            
+            <rect x="680" y="530" width="85" height="25" class="orange-oval" />
+            <text x="722.5" y="547" class="label-text" text-anchor="middle">Referencia</text>
+
+            <!-- Caja Verde del Servidor Local -->
+            <rect x="210" y="490" width="220" height="70" class="green-box" />
+            <text x="220" y="510" class="box-text">Servidor DNS: no reenvía consultas</text>
+            <text x="220" y="525" class="box-text">a otro servidor (reenviador) y</text>
+            <text x="220" y="540" class="box-text">tiene la recursividad activada</text>
+            <text x="220" y="555" class="box-text">Hace las consultas de forma "iterativa"</text>
+
+
+            <!-- ================= NODOS SERVIDORES (Gráficos) ================= -->
+            
+            <!-- PC -->
+            <use href="#pc" x="90" y="335" />
+            <!-- Servidor Local -->
+            <use href="#server" x="330" y="335" />
+            
+            <!-- Servidor Raíz -->
+            <use href="#server" x="600" y="90" />
+            <!-- Servidor Autorizado TLD .es -->
+            <use href="#server" x="600" y="335" />
+            <!-- Servidor Autorizado zeppelinux -->
+            <use href="#server" x="600" y="580" />
+
+
+            <!-- ================= CAJAS DE DATOS SERVIDORES DERECHA ================= -->
+            
+            <!-- === Raíz === -->
+            <!-- Info verde -->
+            <rect x="670" y="90" width="200" height="55" class="green-box" />
+            <text x="680" y="110" class="box-text">Servidor DNS raíz "."</text>
+            <text x="680" y="125" class="box-text">Nombre DNS: a.root-servers.net</text>
+            <text x="680" y="140" class="box-text">IP: 198.41.0.4</text>
+            <!-- Info azul (Zona) -->
+            <use href="#blue-doc" x="670" y="155" />
+            <text x="680" y="175" class="mono-text">...</text>
+            <text x="680" y="195" class="mono-text">es.      IN NS b.nic.es</text>
+            <text x="680" y="210" class="mono-text">b.nic.es IN A  195.81.201.11</text>
+            <text x="680" y="230" class="mono-text">...</text>
+
+            <!-- === TLD (.es) === -->
+            <!-- Info verde -->
+            <rect x="670" y="335" width="200" height="55" class="green-box" />
+            <text x="680" y="355" class="box-text">Servidor autorizado para 'es.'</text>
+            <text x="680" y="370" class="box-text">Nombre DNS: b.nic.es</text>
+            <text x="680" y="385" class="box-text">IP: 195.81.201.11</text>
+            <!-- Info azul (Zona) -->
+            <use href="#blue-doc" x="670" y="400" />
+            <text x="680" y="420" class="mono-text">...</text>
+            <text x="680" y="440" class="mono-text">zeppelinux.es. IN NS ns1.h3m.com</text>
+            <text x="680" y="455" class="mono-text">ns1.h3m.com.   IN A  91.199.129.4</text>
+            <text x="680" y="475" class="mono-text">...</text>
+
+            <!-- === Autorizado (zeppelinux.es) === -->
+            <!-- Info verde -->
+            <rect x="670" y="580" width="200" height="55" class="green-box" />
+            <text x="680" y="600" class="box-text">Servidor autorizado para</text>
+            <text x="680" y="615" class="box-text">"zeppelinux.es."</text>
+            <text x="680" y="630" class="box-text">Nombre DNS: ns1.h3m.com</text>
+            <!-- Info azul (Zona) -->
+            <use href="#blue-doc" x="670" y="645" />
+            <text x="680" y="665" class="mono-text">...</text>
+            <text x="680" y="695" class="mono-text">www.zeppelinux.es. IN A 91.199.120.62</text>
+            <text x="680" y="715" class="mono-text">...</text>
+
+
+            <!-- ================= TÍTULO INFERIOR ================= -->
+            <text x="550" y="780" class="title">Ejemplo de consulta recursiva</text>
+
+        </svg>
+
+          </section>
+          <section>
+            <h2>Práctica DNS: DNS kill chain</h2>
+            <p>DNS no es sólo un servicio, sino también un punto crítico de seguridad porque muchos tipos de ataques, salvo los que funcionan sobre IP directamente, dependen de él.</p>
+            <p>Vamos a ver distintos tipos de ataques </p>
+        </section>
+        </main>
+      </body>
+    </html>
+  </body>
+</html>

@@ -924,9 +924,9 @@
           <p>Agrega la configuración de la zona para tu dominio:</p>
           <p>
           <pre><code>
-zone "tu-dominio.com" {
+zone "aula.test" {
     type master;
-    file "/etc/bind/db.tu-dominio.com";
+    file "/etc/bind/db.aula.test";
 };
           </code></pre>
           </p>
@@ -947,6 +947,35 @@ options {
 };
           </code></pre>
           </p>
+          <li>Crear el archivo de zona para el dominio aula.test</li>
+          <p>
+          <pre><code>sudo nano /etc/bind/db.aula.test</code></pre>
+          </p>
+          <p>Agrega los registros de recursos necesarios para tu dominio:</p>
+          <p>
+          <pre><code>
+;
+; Archivo de zona para aula.test
+;
+$TTL 604800
+@ IN SOA ns1.aula.test. root.aula.test. (
+    2025110503 ; Serial (Aumentar con cada cambio)
+    10800      ; Refresh
+    3600       ; Retry
+    604800     ; Expire
+    60         ; Negative Cache TTL
+)
+
+; Servidores de Nombres
+@   IN  NS  ns1.aula.test.
+
+; Mapeos de Direcciones (Registros A)
+; **NOTA:** Todos los registros apuntan a 127.0.0.1 (localhost).
+ns1 IN  A   127.0.0.1
+@   IN  A   127.0.0.1
+www IN  A   127.0.0.1
+
+</code></pre>         
           <li>Iniciar y habilitar el servicio DNS</li>
           <p>
           <pre><code>sudo systemctl start bind9
@@ -955,18 +984,14 @@ sudo systemctl enable bind9</code></pre>
           <li>Verificar la configuración</li>
           <p>
           <pre><code>sudo named-checkconf
-sudo named-checkzone "tu-dominio.com" /etc/bind/db.tu-dominio.com</code></pre>
+sudo named-checkzone "aula.test" /etc/bind/db.aula.test</code></pre>
           </p>
           <li>Probar la resolución de nombres</li>
           <p>
-          <pre><code>dig @localhost tu-dominio.com</code></pre>
+          <pre><code>dig @localhost aula.test</code></pre>
           </p>
         </ol>
-        <p><code>tu-dominio.com</code> es un nombre de ejemplo, no un dominio especial que tengas que buscar.
-          Sustitúyelo por el dominio que hayas elegido y usa ese mismo nombre en la zona, el archivo de zona,
-          <code>named-checkzone</code> y el comando <code>dig</code>. Para una práctica local puedes usar, por ejemplo,
-          <code>ejemplo.test</code>; no necesitas comprarlo para probarlo en tu servidor DNS local.
-        </p>
+ 
         <p>Es importante tener en cuenta que la configuración de un servidor DNS puede variar según la distribución de
           Linux y la versión de BIND que se esté utilizando. Asegúrate de consultar la documentación oficial de BIND y
           seguir las mejores prácticas de seguridad al configurar tu servidor DNS.</p>

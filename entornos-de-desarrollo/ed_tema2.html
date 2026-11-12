@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apuntes de Entornos de Desarrollo - Tema 2</title>
+  <style>
+    :root {
+      --primary-color: #1e7ad6;
+      --secondary-color: #1e7ad6d0;
+      --bg-color: #f9fbfd;
+      --text-color: #333;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      background-color: var(--card-bg);
+      border-radius: 0px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border-left: 5px solid var(--secondary-color);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      border-bottom: 2px solid #ecf0f1;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--secondary-color);
+      margin-top: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight {
+      background-color: #e8f4f8;
+      padding: 1rem;
+      border-radius: 5px;
+      font-weight: 500;
+      margin: 1rem 0;
+    }
+
+    .shortcut-box {
+      background-color: #2c3e50;
+      color: #ffffff;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      display: inline-block;
+      font-family: "Courier New", Courier, monospace;
+      margin: 0.5rem 0;
+    }
+
+    .shortcut-box kbd {
+      background-color: #34495e;
+      border: 1px solid #7f8c8d;
+      border-radius: 3px;
+      padding: 0.2rem 0.4rem;
+      font-weight: bold;
+    }
+
+    .titulo-figura {
+      text-align: center;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background-color: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #e0e0e0;
+      padding: 0.85rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    tr:hover {
+      background-color: #edf2f7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      background-color: #e2e8f0;
+      color: #2d3748;
+    }
+    .toolbar-container {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border-radius: 3px;
+            overflow: hidden;
+            display:flex;
+            justify-content:center;
+            svg{margin: 20px;}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Entornos de Desarrollo</h1>
+    <p style="text-align: center;">TEMA 2: ENTORNOS DE DESARROLLO INTEGRADO (IDE) Y HERRAMIENTAS DE CONSTRUCCIÓN</p>
+    <p style="text-align: center;"><small>Autor: Carlos Lobato Gómez</small></p>
+    <p style="text-align: center; font-size: 0.8em;">
+      <small>
+        <span role="img" aria-label="Creative Commons"
+          style="display: inline-flex; align-items: center; justify-content: center; width: 1.25em; height: 1.25em; border: 2px solid currentColor; border-radius: 50%; font-weight: 700; font-size: 0.8em;">CC</span>
+        Contenido bajo licencia <strong>CC BY-NC-SA</strong>.
+      </small>
+    </p>
+  </header>
+
+  <main>
+    <!-- SECCIÓN 1: INTRODUCCIÓN A LOS IDE -->
+    <section>
+      <h2>1. Entorno de Desarrollo Integrado (IDE)</h2>
+      <p>
+        Un <strong>Entorno de Desarrollo Integrado (IDE - Integrated Development Environment)</strong> es una aplicación
+        de software diseñada para facilitar el proceso de desarrollo de software. Estos entornos proporcionan un
+        conjunto completo de herramientas integradas en una interfaz unificada, lo que agiliza y optimiza las diversas
+        etapas del ciclo de desarrollo.
+      </p>
+
+      <h3>Características principales de un IDE</h3>
+      <ul>
+        <li>
+          <strong>Editor de código:</strong> Permite escribir, editar y formatear código fuente, ofreciendo
+          funcionalidades avanzadas como resaltado de sintaxis, autocompletado de código, indentación automática y
+          refactorización.
+          <div class="highlight">
+            En Visual Studio Code (VSC), las sugerencias de autocompletado se despliegan con <kbd>Ctrl</kbd> +
+            <kbd>Space</kbd>, y el atajo para comentar código es <kbd>Ctrl</kbd> + <kbd>K</kbd> + <kbd>C</kbd>.
+          </div>
+        </li>
+        <li>
+          <strong>Compilador y enlazador:</strong> Automatiza el proceso de compilación y enlazado del código fuente
+          para generar un programa ejecutable.
+        </li>
+        <li>
+          <strong>Depurador (Debugger):</strong> Facilita la identificación y corrección de errores en el código
+          mediante la ejecución paso a paso, la inspección de variables y la configuración de puntos de interrupción
+          (breakpoints).
+        </li>
+        <li>
+          <strong>Integración con sistemas de control de versiones:</strong> Permite trabajar de forma colaborativa con
+          otros desarrolladores, gestionando los cambios en el código fuente a través de sistemas como Git.
+        </li>
+        <li>
+          <strong>Instalación de plugins y extensiones:</strong> Posibilita la adición de nuevas funcionalidades, temas
+          o soportes para lenguajes mediante módulos externos (plugins).
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- SECCIÓN 2: PRINCIPALES IDES -->
+    <section>
+      <h2>2. Principales IDEs del Mercado</h2>
+      <p>
+        Existen diversos entornos en el mercado adaptados a tecnologías, lenguajes y necesidades específicas:
+      </p>
+
+      <!-- 2.1 Visual Studio Code -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Visual Studio Code">
+          <path d="M72 90l18-9V19L72 10 33 41 15 27 5 33l15 17L5 67l10 6 18-14z" fill="#0065a9" />
+          <path d="M72 10L33 41l39 31 18-9V19z" fill="#007acc" />
+          <path d="M72 72L33 41l-18 13 18 14 39 22z" fill="#1f9cf0" />
+          <path d="M90 19v62l-18 9V10z" fill="#0065a9" />
+        </svg>
+        <h3 style="margin: 0;">2.1 Visual Studio Code (VSC)</h3>
+      </div>
+      <p>
+        Es uno de los IDEs más populares y versátiles, especialmente entre desarrolladores web. Ofrece una gran cantidad
+        de extensiones que lo adaptan a casi cualquier lenguaje de programación. Es ligero, rápido y altamente
+        personalizable.
+      </p>
+      <ul>
+        <li><strong>Características:</strong> Autocompletado inteligente de código, depuración interactiva, integración
+          nativa con Git y soporte para múltiples lenguajes.</li>
+      </ul>
+
+      <!-- 2.2 Visual Studio -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Visual Studio">
+          <path d="M70 90l20-10V20L70 10 35 41 18 28 6 35l17 15L6 65l12 7 17-13z" fill="#5c2d91" />
+          <path d="M70 10L35 41l35 31 20-10V20z" fill="#68217a" />
+          <path d="M70 72L35 41l-17 12 17 14 35 23z" fill="#8661c5" />
+        </svg>
+        <h3 style="margin: 0;">2.2 Visual Studio</h3>
+      </div>
+      <p>
+        Herramienta estándar para crear aplicaciones sobre plataformas y ecosistemas de Microsoft (Windows, Azure, Xbox,
+        Microsoft HoloLens).
+      </p>
+      <ul>
+        <li><strong>Ámbito ideal:</strong> Desarrollo de aplicaciones en .NET, C# y C++.</li>
+        <li><strong>Características:</strong> Diseñador visual de interfaces de usuario, depuración avanzada, pruebas
+          unitarias e integración profunda con Azure.</li>
+      </ul>
+
+      <!-- 2.3 PyCharm -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo PyCharm">
+          <polygon points="5,25 45,5 95,20 85,85 30,95 10,75" fill="#21D789" />
+          <polygon points="15,20 50,8 90,30 75,90 20,80" fill="#000000" />
+          <text x="30" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#FFFFFF">PC</text>
+          <rect x="30" y="62" width="22" height="5" fill="#21D789" />
+        </svg>
+        <h3 style="margin: 0;">2.3 PyCharm</h3>
+      </div>
+      <p>
+        Entorno especializado en Python que ofrece una experiencia optimizada para este lenguaje mediante herramientas
+        visuales y analíticas.
+      </p>
+      <ul>
+        <li><strong>Características:</strong> Refactorización y análisis de código, depuración visual, soporte para
+          frameworks web (Django, Flask) e integración con herramientas de ciencia de datos.</li>
+      </ul>
+
+      <!-- 2.4 IntelliJ IDEA -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo IntelliJ IDEA">
+          <polygon points="10,20 55,5 95,25 80,95 25,85 5,55" fill="#FE2857" />
+          <polygon points="20,15 85,10 90,80 35,90 10,60" fill="#087CFA" />
+          <rect x="20" y="20" width="60" height="60" rx="8" fill="#000000" />
+          <text x="32" y="56" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#FFFFFF">IJ</text>
+          <rect x="32" y="64" width="20" height="5" fill="#FE2857" />
+        </svg>
+        <h3 style="margin: 0;">2.4 IntelliJ IDEA</h3>
+      </div>
+      <p>
+        IDE potente y versátil con soporte para múltiples lenguajes (Java, Kotlin, JavaScript, Python, entre otros).
+      </p>
+      <ul>
+        <li><strong>Puntos fuertes:</strong> Asistencia mediante inteligencia artificial para autocompletado y
+          refactorización, navegación rápida por el código fuente e integración con sistemas de control de versiones.
+        </li>
+      </ul>
+
+      <!-- 2.5 Eclipse -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Eclipse">
+          <!-- Corona solar anaranjada -->
+          <path d="M 22 84 A 42 42 0 1 1 82 20 A 46 46 0 1 0 22 84 Z" fill="#F39C12" />
+          <!-- Disco principal oscuro -->
+          <circle cx="54" cy="50" r="38" fill="#2C2255" />
+          <!-- Franjas blancas horizontales -->
+          <rect x="18" y="38" width="70" height="4.5" fill="#FFFFFF" />
+          <rect x="18" y="47.5" width="70" height="4.5" fill="#FFFFFF" />
+          <rect x="18" y="57" width="70" height="4.5" fill="#FFFFFF" />
+        </svg>
+        <h3 style="margin: 0;">2.5 Eclipse</h3>
+      </div>
+      <p>
+        Un clásico de código abierto en el desarrollo Java, extensible a otros lenguajes. Es altamente personalizable y
+        cuenta con una extensa comunidad.
+      </p>
+      <ul>
+        <li><strong>Características:</strong> Complemento de código, depuración, refactorización y conexión con
+          herramientas de construcción.</li>
+      </ul>
+
+      <!-- 2.6 NetBeans -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo NetBeans">
+          <g transform="translate(50,50)">
+            <!-- Cubo isométrico -->
+            <!-- Cara superior -->
+            <polygon points="0,-40 35,-20 0,0 -35,-20" fill="#9CCC65" />
+            <!-- Cara inferior derecha -->
+            <polygon points="0,0 35,-20 35,22 0,42" fill="#29B6F6" />
+            <!-- Cara inferior izquierda -->
+            <polygon points="0,0 -35,-20 -35,22 0,42" fill="#E91E63" />
+            <!-- Hueco central cúbico -->
+            <polygon points="0,-18 16,-9 0,0 -16,-9" fill="#FFFFFF" />
+            <polygon points="0,0 16,-9 16,11 0,20" fill="#ECEFF1" />
+            <polygon points="0,0 -16,-9 -16,11 0,20" fill="#CFD8DC" />
+          </g>
+        </svg>
+        <h3 style="margin: 0;">2.6 NetBeans</h3>
+      </div>
+      <p>
+        Otro entorno de código abierto popular para Java que ofrece herramientas integradas para proyectos de
+        escritorio, web y móviles.
+      </p>
+      <ul>
+        <li><strong>Características:</strong> Soporte para Java EE, entorno de diseño visual de interfaces y gestión de
+          proyectos web y móviles.</li>
+      </ul>
+
+      <!-- 2.7 Android Studio -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Android Studio">
+          <!-- Círculo base verde Android -->
+          <circle cx="50" cy="50" r="44" fill="#3DDC84" />
+          <!-- Compás / Herramienta central -->
+          <circle cx="50" cy="34" r="14" fill="#3C4043" />
+          <polygon points="43,34 57,34 62,56 38,56" fill="#3C4043" />
+          <!-- Patas del compás -->
+          <polygon points="38,44 48,44 26,82 18,78" fill="#E8EAED" />
+          <polygon points="52,44 62,44 82,78 74,82" fill="#E8EAED" />
+          <!-- Arco transversal blanco -->
+          <path d="M 30 65 Q 50 54 70 65" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+        </svg>
+        <h3 style="margin: 0;">2.7 Android Studio</h3>
+      </div>
+      <p>
+        IDE oficial diseñado específicamente para el desarrollo de aplicaciones nativas de Android.
+      </p>
+      <ul>
+        <li><strong>Características:</strong> Diseñador visual de interfaces (UI), emulador de dispositivos móviles e
+          integración directa con Google Play Store.</li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN 3: CONSTRUCCIÓN Y EMPAQUETADO (BUILD TOOLS) -->
+    <section>
+      <h2>3. Herramientas de Construcción y Empaquetado (Build Tools)</h2>
+      <p>
+        Las herramientas de construcción actúan como directores de orquesta que coordinan
+        todo el proceso de construcción de un software. Automatizan tareas repetitivas y
+        garantizan que el producto final se genere de manera consistente.
+      </p>
+
+      <!-- 3.1 Make -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo GNU Make">
+          <rect x="10" y="10" width="80" height="80" rx="14" fill="#2c3e50" />
+          <!-- Martillo y engranaje estilizados de Make -->
+          <path d="M38 28l14-14 10 10-14 14 6 6-6 6-16-16 6-6z" fill="#ecf0f1" />
+          <rect x="25" y="45" width="38" height="8" rx="3" transform="rotate(45 25 45)" fill="#e67e22" />
+          <circle cx="68" cy="68" r="14" fill="none" stroke="#3498db" stroke-width="5" stroke-dasharray="6,3" />
+          <circle cx="68" cy="68" r="5" fill="#3498db" />
+        </svg>
+        <h3 style="margin: 0;">3.1 Make</h3>
+      </div>
+      <p>
+        Make es una de las herramientas más antiguas para automatizar tareas de construcción.
+        Funciona a partir de un archivo de reglas (<strong>Makefile</strong>) donde se definen
+        las dependencias entre archivos y las acciones a ejecutar para construir el proyecto.
+      </p>
+      <ul>
+        <li>
+          <strong>Funcionamiento:</strong> Make analiza las dependencias y ejecuta las tareas necesarias
+          solo cuando los archivos de salida están desactualizados, logrando procesos de construcción altamente
+          eficientes.
+        </li>
+      </ul>
+
+      <!-- 3.2 Apache Ant -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Apache Ant">
+          <!-- Triángulo magenta de Ant -->
+          <polygon points="12,82 88,82 50,18" fill="#a21575" />
+          <!-- Silueta estilizada de hormiga en blanco -->
+          <ellipse cx="50" cy="42" rx="6" ry="5" fill="#ffffff" />
+          <ellipse cx="50" cy="55" rx="8" ry="6" fill="#ffffff" />
+          <ellipse cx="50" cy="70" rx="10" ry="8" fill="#ffffff" />
+          <!-- Patas y antenas -->
+          <path d="M46 38l-8-10M54 38l8-10M42 55l-16 6M58 55l16 6M44 70l-18 12M56 70l18 12" stroke="#ffffff"
+            stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+        <h3 style="margin: 0;">3.2 Apache Ant</h3>
+      </div>
+      <p>
+        Fue la primera herramienta de construcción relevante para la plataforma Java.
+        La configuración se escribe en XML mediante el archivo <strong>build.xml</strong>.
+      </p>
+      <ul>
+        <li>
+          <strong>Enfoque en tareas:</strong> El desarrollador define explícitamente cada tarea
+          (<em>tasks</em>) y paso del proceso (dónde compilar, dónde copiar ficheros, etc.).
+        </li>
+        <li>
+          <strong>Ventaja / Desventaja:</strong> Aporta una flexibilidad enorme, pero los archivos
+          de configuración pueden volverse excesivamente extensos y difíciles de mantener en proyectos grandes.
+        </li>
+      </ul>
+
+      <!-- 3.3 Apache Maven -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Apache Maven">
+          <rect x="5" y="5" width="90" height="90" rx="14" fill="#1b1c1d" />
+          <!-- Pluma izquierda magenta/naranja -->
+          <path d="M42 85 C32 65 24 35 34 18 C38 28 44 42 45 58 C46 68 44 78 42 85 Z" fill="#e65100" />
+          <path d="M42 85 C37 68 32 45 38 24 C40 34 44 48 45 58 Z" fill="#f57c00" />
+          <!-- Pluma derecha fucsia/púrpura cruzada -->
+          <path d="M42 85 C52 65 72 32 64 16 C60 26 52 42 47 58 C44 68 43 78 42 85 Z" fill="#c2185b" />
+          <path d="M42 85 C50 68 62 42 58 24 C54 34 48 48 47 58 Z" fill="#e91e63" />
+          <!-- Tallo de pluma -->
+          <line x1="42" y1="88" x2="33" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+          <line x1="42" y1="88" x2="65" y2="14" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+        </svg>
+        <h3 style="margin: 0;">3.3 Apache Maven</h3>
+      </div>
+      <p>
+        Utiliza un <strong>Modelo de Objetos de Proyecto (POM)</strong> recogido en el archivo
+        <strong>pom.xml</strong> para describir la estructura y las dependencias de la aplicación.
+        Es un estándar indiscutible en el ecosistema corporativo Java.
+      </p>
+      <ul>
+        <li>
+          <strong>Ventajas:</strong> Impone una estructura clara y uniforme que facilita la
+          incorporación de nuevos programadores y ofrece un extenso repositorio de plugins.
+        </li>
+        <li>
+          <strong>Desventajas:</strong> Menor flexibilidad que Make para compilaciones a medida
+          y el formato XML puede resultar prolijo y tedioso.
+        </li>
+      </ul>
+
+      <!-- 3.4 Gradle -->
+      <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48"
+          style="background: transparent; box-shadow: none; flex-shrink: 0;" aria-label="Logo Gradle">
+          <!-- Cabeza y silueta del elefante oficial de Gradle -->
+          <path
+            d="M49.6 15.2c-15.6 0-28.3 12.7-28.3 28.3 0 7.8 3.2 14.9 8.3 20l-14.8 14.8c-1.5 1.5-1.5 4 0 5.6 1.5 1.5 4 1.5 5.6 0l16-16c4 2.5 8.7 3.9 13.8 3.9 10.2 0 19.1-5.4 24.1-13.4l7.6 2.7c1.4.5 2.9-.2 3.4-1.6.5-1.4-.2-2.9-1.6-3.4l-7-2.5c.7-2.6 1.1-5.3 1.1-8.1 0-7.3-2.8-14-7.4-19.1l7.3-7.3c1.5-1.5 1.5-4 0-5.6-1.5-1.5-4-1.5-5.6 0l-7 7c-4.8-3.1-10.5-4.8-16.6-4.8zm-11.2 24.4c2.4 0 4.4 2 4.4 4.4s-2 4.4-4.4 4.4-4.4-2-4.4-4.4 2-4.4 4.4-4.4z"
+            fill="#02303A" />
+        </svg>
+        <h3 style="margin: 0;">3.4 Gradle</h3>
+      </div>
+      <p>
+        Es una herramienta moderna y flexible que combina las mejores características de Make y Maven.
+        Utiliza un lenguaje de construcción basado en <strong>Kotlin o Groovy DSL</strong>, lo que permite
+        escribir configuraciones mucho más concisas y legibles que el XML.
+      </p>
+      <ul>
+        <li>
+          <strong>Rendimiento incremental:</strong> Es muy eficiente, ya que solo procesa y compila
+          los archivos que han sufrido modificaciones.
+        </li>
+        <li>
+          <strong>Reemplazo moderno:</strong> Hoy en día reemplaza a Ant en casi todos los escenarios
+          y se consolida como el estándar oficial de construcción en <strong>Android</strong>.
+        </li>
+      </ul>
+
+      <!-- TABLA COMPARATIVA -->
+      <h3 style="margin-top: 2rem;">Tabla comparativa de herramientas de construcción</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Herramienta</th>
+            <th>Cuándo elegirla</th>
+            <th>Por qué</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Make</strong></td>
+            <td>Proyectos de C/C++ o scripts de bajo nivel.</td>
+            <td>Es el estándar histórico para compilaciones nativas.</td>
+          </tr>
+          <tr>
+            <td><strong>Ant</strong></td>
+            <td>Proyectos Java heredados (legacy).</td>
+            <td>La configuración es totalmente manual (por tareas). Ideal si la construcción es atípica y requiere pasos
+              explícitos.</td>
+          </tr>
+          <tr>
+            <td><strong>Maven</strong></td>
+            <td>Proyectos Java/J2EE que necesitan estandarización y gestión centralizada.</td>
+            <td>Impone una estructura clara, facilitando que nuevos desarrolladores entiendan el proyecto rápidamente.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Gradle</strong></td>
+            <td>Proyectos Android, Kotlin o grandes proyectos JVM con alto rendimiento.</td>
+            <td>Es la opción moderna. Combina gestión de dependencias con flexibilidad de código (Kotlin/Groovy DSL) y
+              alta velocidad.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- SECCIÓN 4: EJECUTABLES Y PAQUETES -->
+    <section>
+      <h2>4. Creación de Ejecutables y Paquetes de Distribución</h2>
+      <p>
+        Una vez construido el código, es necesario empaquetarlo en un formato apto para distribución e instalación en el
+        entorno del cliente.
+      </p>
+
+      <div class="highlight">
+        <strong>Beneficios de la automatización:</strong>
+        <ul>
+          <li><strong>Consistencia:</strong> Garantiza que el producto generado sea exactamente el mismo sin importar
+            quién ejecute la construcción.</li>
+          <li><strong>Eficiencia:</strong> Reduce errores manuales y agiliza las entregas continuas.</li>
+          <li><strong>Facilidad de distribución:</strong> Permite poner a disposición de los usuarios instaladores y
+            paquetes listos para desplegar.</li>
+        </ul>
+      </div>
+
+      <h3>Tipos de ejecutables según la plataforma</h3>
+      <ul>
+        <li><strong>Aplicaciones de escritorio:</strong> Archivos ejecutables directos como <span
+            class="badge">.exe</span> (Windows) o <span class="badge">.app</span> (macOS).</li>
+        <li><strong>Aplicaciones web:</strong> Paquetes empaquetados como <span class="badge">.WAR</span> (Web
+          Application Archive) o <span class="badge">.JAR</span> (Java Archive) listos para servidores de aplicaciones.
+        </li>
+        <li><strong>Aplicaciones móviles:</strong> Paquetes específicos como <span class="badge">APK</span> (Android
+          Package Kit) o <span class="badge">IPA</span> (iOS App Store Package).</li>
+        <li><strong>Linux:</strong> Scripts de ejecución y configuración habitualmente distribuidos con extensión <span
+            class="badge">.sh</span>.</li>
+      </ul>
+
+      <h3>Paquetes de instalación (Instaladores)</h3>
+      <p>
+        Automatizan la instalación del software en el sistema operativo del usuario:
+      </p>
+      <ul>
+        <li><strong>Windows:</strong> Instaladores <span class="badge">MSI</span>.</li>
+        <li><strong>macOS:</strong> Imágenes de disco <span class="badge">DMG</span>.</li>
+        <li><strong>Linux:</strong> Gestores de paquetes como <span class="badge">RPM</span> o <span
+            class="badge">DEB</span>.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Práctica Depuración:</h2>
+      <h3>¿Qué es la depuración?</h3>
+      <p>
+        La depuración es el proceso de identificar, localizar y corregir errores (también llamados "bugs") en un programa de computadora.
+      </p >
+      <h3>Herramientas de depuración:</h3>
+      <ul>
+        <li>Depuradores integrados en IDEs: La mayoría de los entornos de desarrollo integrados (IDEs) incluyen depuradores que permiten ejecutar el programa paso a paso, inspeccionar variables y establecer puntos de interrupción.</li>
+        <li>Depuradores de línea de comandos: Herramientas como GDB para C/C++ o PDB para Python permiten depurar programas desde la terminal.</li>
+        <li>Herramientas de análisis estático: Estas herramientas analizan el código sin ejecutarlo, identificando posibles errores y vulnerabilidades.</li>
+      </ul>
+      <h3>Buenas prácticas de depuración:</h3>
+      <ul>
+        <li>Reproducir el error: Asegúrate de poder reproducir el error de manera consistente antes de intentar solucionarlo.</li>
+        <li>Usar puntos de interrupción: Coloca puntos de interrupción estratégicamente para detener la ejecución del programa y examinar su estado.</li>
+        <li>Inspeccionar variables: Observa los valores de las variables en diferentes puntos del programa para entender su comportamiento.</li>
+        <li>Dividir y conquistar: Si el programa es grande, divide el código en partes más pequeñas y prueba cada una por separado.</li>
+        <li>Documentar los hallazgos: Mantén un registro de los errores encontrados y las soluciones aplicadas para futuras referencias.</li>
+      </ul>
+      <h3>Depuración java en Netbeans:</h3>
+      <p>
+        Para depurar un programa Java en NetBeans, sigue estos pasos:
+      </p>
+      <ol>
+        <li>Abre tu proyecto en NetBeans.</li>
+        <li>Coloca puntos de interrupción haciendo clic en el margen izquierdo del editor de código, junto a la línea donde deseas detener la ejecución.</li>
+        <li>Haz clic derecho en el archivo principal y selecciona "Depurar" o presiona <kbd>Ctrl</kbd> + <kbd>F5</kbd>.</li>
+        <li>El programa se ejecutará hasta el primer punto de interrupción. Desde allí, puedes usar las opciones de depuración para avanzar paso a paso, inspeccionar variables y evaluar expresiones.</li>
+        <li>Una vez que hayas identificado y corregido los errores, puedes continuar ejecutando el programa normalmente.</li>
+      </ol>
+      <p>El menú de depuración en NetBeans ofrece varias opciones, como "Continuar", "Paso a paso", "Siguiente línea" y "Salir de la función", que te permiten controlar la ejecución del programa durante la depuración.</p>
+      <!-- SVG de la barra de herramientas -->
+      <div class="toolbar-container">
+      <svg width="400" height="50" viewBox="0 0 400 50" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Fondo de la barra -->
+            <rect width="400" height="50" fill="#3c3f41" />
+
+            <!-- 1. Agarre (Grip handle) -->
+            <g fill="#999999">
+                <circle cx="15" cy="16" r="1.5" />
+                <circle cx="15" cy="22" r="1.5" />
+                <circle cx="15" cy="28" r="1.5" />
+                <circle cx="15" cy="34" r="1.5" />
+            </g>
+
+            <!-- 2. Botón Stop -->
+            <g transform="translate(32, 12)">
+                <rect width="26" height="26" rx="2" fill="#ef7b7b" stroke="#bc5454" stroke-width="1.5" />
+                <rect x="7" y="7" width="12" height="12" fill="#ffffff" />
+            </g>
+
+            <!-- 3. Botón Pause -->
+            <g transform="translate(87, 25)">
+                <circle r="14" fill="#e59d42" stroke="#b26f1c" stroke-width="1.5" />
+                <rect x="-6" y="-7" width="3.5" height="14" fill="#ffffff" />
+                <rect x="2.5" y="-7" width="3.5" height="14" fill="#ffffff" />
+            </g>
+
+            <!-- 4. Botón Play -->
+            <g transform="translate(133, 25)">
+                <circle r="14" fill="#6cbe55" stroke="#488c32" stroke-width="1.5" />
+                <polygon points="-4,-7 -4,7 6,0" fill="#ffffff" />
+            </g>
+
+            <!-- Definiciones reutilizables para los iconos de documentos y estilo de flechas -->
+            <defs>
+                <!-- Base del documento azul -->
+                <g id="doc">
+                    <rect x="0" y="0" width="20" height="22" fill="#a4cde8" stroke="#5a86a5" stroke-width="1" />
+                    <line x1="4" y1="6" x2="16" y2="6" stroke="#5a86a5" stroke-width="1"/>
+                    <line x1="4" y1="11" x2="16" y2="11" stroke="#5a86a5" stroke-width="1"/>
+                    <line x1="4" y1="16" x2="16" y2="16" stroke="#5a86a5" stroke-width="1"/>
+                </g>
+                <!-- Estilo global de las flechas amarillas/naranjas -->
+                <style>
+                    .arrow { 
+                        fill: #f7b44d; 
+                        stroke: #a86c1f; 
+                        stroke-width: 1.2; 
+                        stroke-linejoin: round; 
+                    }
+                </style>
+            </defs>
+
+            <!-- 5. Step Return (Flecha hacia atrás/arriba) -->
+            <g transform="translate(170, 14)">
+                <use href="#doc" />
+                <path d="M 13 14 L 13 10 C 13 4 5 4 5 10 L 8 10 L 2 17 L -4 10 L -1 10 C -1 -1 17 -1 17 10 L 17 14 Z" class="arrow"/>
+            </g>
+
+            <!-- 6. Step Over (Flecha saltando hacia adelante) -->
+            <g transform="translate(215, 14)">
+                <use href="#doc" />
+                <path d="M 6 14 L 6 10 C 6 4 14 4 14 10 L 11 10 L 17 17 L 23 10 L 20 10 C 20 -1 2 -1 2 10 L 2 14 Z" class="arrow"/>
+            </g>
+
+            <!-- 7. Step Into (Flecha hacia abajo) -->
+            <g transform="translate(260, 14)">
+                <use href="#doc" />
+                <path d="M 7 -3 L 13 -3 L 13 7 L 18 7 L 10 16 L 2 7 L 7 7 Z" class="arrow" />
+            </g>
+
+            <!-- 8. Step Out (Flecha hacia arriba) -->
+            <g transform="translate(305, 14)">
+                <use href="#doc" />
+                <path d="M 10 -3 L 18 6 L 13 6 L 13 15 L 7 15 L 7 6 L 2 6 Z" class="arrow" />
+            </g>
+
+            <!-- 9. Run to Cursor (Flecha a la derecha con cursor de texto) -->
+            <g transform="translate(350, 14)">
+                <use href="#doc" />
+                <path d="M -2 7 L 4 7 L 4 3 L 11 9 L 4 15 L 4 11 L -2 11 Z" class="arrow" />
+                <!-- Cursor (I-beam) -->
+                <path d="M 14 3 L 18 3 M 16 3 L 16 17 M 14 17 L 18 17" stroke="#333333" stroke-width="1.5" fill="none"/>
+            </g>
+
+        </svg>
+      </div>
+
+
+      
+
+    </section>
+  </main>
+</body>
+
+</html>
